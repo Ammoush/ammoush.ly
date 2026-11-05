@@ -24,7 +24,7 @@ Everything the site says lives in one file: [`src/content/profile.yaml`](src/con
 - Change the text between the quotes; keep the keys as they are.
 - Dates use `YYYY-MM`. `end: null` means the role is current.
 - To add a role, copy an existing item under `experience.items` and edit it. Items are shown in the order they appear.
-- To add the CV, put the PDF in `public/` (for example `public/cv.pdf`) and set `contact.cv: "/cv.pdf"`. The download button appears automatically.
+- The CV is `public/cv.pdf`. To update it, replace that file. Set `contact.cv: null` to hide the download buttons.
 
 The file is validated on every build. If something is missing or malformed, the build stops and names the exact field, so a broken page is never published.
 

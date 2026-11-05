@@ -29,7 +29,7 @@ contact:
   linkedin: "https://www.linkedin.com/in/ahmed-ammoush/"
   github: "https://github.com/Ammoush"
   source: "https://github.com/Ammoush/ammoush.ly"
-  cv: null # path to the general CV once it's ready, e.g. "/cv.pdf"
+  cv: "/cv.pdf" # the PDF in public/, set to null to hide the download buttons
 
 nav:
   about: { en: "About", ar: "نبذة" }
