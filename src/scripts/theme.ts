@@ -1,15 +1,7 @@
+// Dark is the default; the toggle switches themes and remembers the choice.
 const root = document.documentElement;
 const button = document.querySelector<HTMLButtonElement>(".theme-toggle");
-const systemDark = matchMedia("(prefers-color-scheme: dark)");
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
-
-function storedTheme() {
-  try {
-    return localStorage.getItem("theme");
-  } catch {
-    return null;
-  }
-}
 
 function syncButton() {
   if (!button) return;
@@ -33,10 +25,6 @@ button?.addEventListener("click", () => {
   } else {
     apply(next);
   }
-});
-
-systemDark.addEventListener("change", (event) => {
-  if (!storedTheme()) apply(event.matches ? "dark" : "light");
 });
 
 syncButton();

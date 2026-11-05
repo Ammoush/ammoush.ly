@@ -1,1 +1,1 @@
-(()=>{let t=null;try{t=localStorage.getItem("theme")}catch{}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})();
+(()=>{let t=null;try{t=localStorage.getItem("theme")}catch{}if(t=="light"||t=="dark")document.documentElement.dataset.theme=t})();

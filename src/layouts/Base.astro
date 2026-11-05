@@ -42,7 +42,7 @@ const jsonLd = {
 ---
 
 <!doctype html>
-<html lang={lang} dir={dir(lang)}>
+<html lang={lang} dir={dir(lang)} data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -53,8 +53,7 @@ const jsonLd = {
     {indexable && <link rel="alternate" hreflang="x-default" href={alternates[0].href} />}
 
     <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#f1f1ea" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#1d2218" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#0e1726" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
@@ -72,7 +71,7 @@ const jsonLd = {
     <meta property="profile:last_name" content={person.name[lang].split(" ").slice(1).join(" ")} />
     <meta name="twitter:card" content="summary_large_image" />
 
-    {/* Runs before first paint so the stored theme never flashes. Hashed into the CSP in astro.config.mjs. */}
+    {/* Applies a stored theme choice before first paint; dark is the default. Hashed into the CSP in astro.config.mjs. */}
     <script is:inline set:html={themeInit} />
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>

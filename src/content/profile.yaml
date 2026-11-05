@@ -44,12 +44,21 @@ hero:
     ar: "أحافظ على تناغم أنظمة ERP والبيانات والعمليات، وأبني الأدوات التي ترفع كفاءتها."
   cta_primary: { en: "Get in touch", ar: "تواصل معي" }
   cta_secondary: { en: "LinkedIn", ar: "LinkedIn" }
-  domains:
-    label: { en: "Focus areas", ar: "مجالات التركيز" }
-    items:
-      - { en: "ERP", ar: "ERP" }
-      - { en: "Data", ar: "البيانات" }
-      - { en: "Operations", ar: "العمليات" }
+  # The reconciliation panel next to the name. Rows are what gets matched between the two systems.
+  console:
+    label: { en: "Illustration: orders, invoices, and stock reconciled between Odoo and the app", ar: "رسم توضيحي: مطابقة الطلبات والفواتير والمخزون بين Odoo والتطبيق" }
+    title: { en: "Reconciliation", ar: "المطابقة" }
+    left: { en: "Odoo", ar: "Odoo" }
+    right: { en: "App", ar: "التطبيق" }
+    rows:
+      - { en: "Orders", ar: "الطلبات" }
+      - { en: "Invoices", ar: "الفواتير" }
+      - { en: "Stock", ar: "المخزون" }
+    mismatch: { en: "Mismatch", ar: "غير مطابق" }
+    matched: { en: "Matched", ar: "مطابق" }
+    done: { en: "In sync", ar: "متطابق" }
+    rerun: { en: "Run again", ar: "إعادة الفحص" }
+    subtitle: { en: "Odoo and the app, checked line by line", ar: "Odoo والتطبيق، فحص بنداً بنداً" }
 
 about:
   heading: { en: "About", ar: "نبذة" }

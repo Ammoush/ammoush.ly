@@ -2,24 +2,25 @@
  * Design tokens.
  * Two section tones (light / dark) alternate down the page; each theme
  * (light / dark) remaps both tones. Components only read the semantic
- * --bg / --fg / --fg-muted / --accent / --on-accent / --rule variables.
+ * variables (--bg, --surface, --fg, --fg-muted, --accent, --on-accent,
+ * --rule, --warn, --warn-tint, --ok-tint). Dark is the default theme.
  */
 
 :root {
-  /* Palette */
-  --paper: #f1f1ea;
-  --ink: #20261a;
-  --ink-muted: #545b49;
-  --olive: #4e6329;
-  --stone: #d6d6c8;
+  /* Palette: midnight and mint */
+  --midnight: #0e1726;
+  --midnight-deep: #0a111d;
+  --midnight-raised: #152238;
+  --midnight-rule: #22324d;
+  --mist: #e6edf5;
+  --mist-muted: #93a3b8;
+  --mint: #5eead4;
+  --mint-ink: #0b7568;
 
-  --night: #161a12;
-  --night-raised: #1d2218;
-  --night-deep: #13160f;
-  --mist: #e8e8df;
-  --mist-muted: #a3a897;
-  --sage: #b4bf86;
-  --night-rule: #2e3427;
+  --cloud: #f4f6f9;
+  --navy-ink: #0e1726;
+  --slate: #4a5a70;
+  --cloud-rule: #dce3ec;
 
   /* Type */
   --font-latin: "Inter Tight Variable", "Inter Tight", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -76,38 +77,39 @@
   --tracking-heading: 0;
 }
 
-/* Light theme (default) */
+/* Light theme */
 :root,
 .tone-light {
-  --bg: var(--paper);
-  --fg: var(--ink);
-  --fg-muted: var(--ink-muted);
-  --accent: var(--olive);
-  --on-accent: var(--paper);
-  --rule: var(--stone);
+  --bg: var(--cloud);
+  --surface: #ffffff;
+  --fg: var(--navy-ink);
+  --fg-muted: var(--slate);
+  --accent: var(--mint-ink);
+  --on-accent: #ffffff;
+  --rule: var(--cloud-rule);
+  --warn: #9a3412;
+  --warn-tint: #fbe5d8;
+  --ok-tint: #d3f0eb;
 }
 
-.tone-dark {
-  --bg: var(--night);
-  --fg: var(--mist);
-  --fg-muted: var(--mist-muted);
-  --accent: var(--sage);
-  --on-accent: var(--night);
-  --rule: var(--night-rule);
-}
-
-/* Dark theme: both tones go dark, at two different depths. */
-:root[data-theme="dark"],
+.tone-dark,
+[data-theme="dark"],
 [data-theme="dark"] .tone-light {
-  --bg: var(--night-raised);
+  --bg: var(--midnight);
+  --surface: var(--midnight-raised);
   --fg: var(--mist);
   --fg-muted: var(--mist-muted);
-  --accent: var(--sage);
-  --on-accent: var(--night);
-  --rule: #343b2c;
+  --accent: var(--mint);
+  --on-accent: var(--midnight-deep);
+  --rule: var(--midnight-rule);
+  --warn: #fdba74;
+  --warn-tint: #3b2a1e;
+  --ok-tint: #123b3e;
 }
 
+/* Dark theme: the "dark" sections sit one step deeper than the "light" ones. */
 [data-theme="dark"] .tone-dark {
-  --bg: var(--night-deep);
-  --rule: var(--night-rule);
+  --bg: var(--midnight-deep);
+  --surface: #101a2b;
+  --rule: #1b2840;
 }

@@ -6,7 +6,7 @@ export const GET: APIRoute = async ({ site }) => {
     type: "svg",
     errorCorrectionLevel: "M",
     margin: 2,
-    color: { dark: "#20261a", light: "#ffffff" },
+    color: { dark: "#0e1726", light: "#ffffff" },
   });
 
   return new Response(svg, { headers: { "Content-Type": "image/svg+xml" } });
