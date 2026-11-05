@@ -78,6 +78,7 @@ const jsonLd = {
   <body class="tone-light">
     <a class="skip-link" href="#main">{profile.ui.skip_to_content[lang]}</a>
     <Header lang={lang} />
+    <div class="scroll-progress" aria-hidden="true"></div>
     <main id="main">
       <slot />
     </main>
@@ -87,6 +88,7 @@ const jsonLd = {
       import "../scripts/theme";
       import "../scripts/current-section";
       import "../scripts/copy";
+      import "../scripts/backdrop";
     </script>
   </body>
 </html>

@@ -1,5 +1,85 @@
-@view-transition {
-  navigation: auto;
+/* Cross-document transitions between the two languages (and to 404). Firefox falls back to a plain load. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: var(--dur-base);
+  }
+
+  ::view-transition-group(hero-name),
+  ::view-transition-group(hero-console) {
+    animation-duration: 650ms;
+    animation-timing-function: var(--ease-out);
+  }
+}
+
+/* A hairline that fills as the page scrolls. Hidden without scroll timelines. */
+.scroll-progress {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  z-index: 60;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  display: none;
+}
+
+[dir="rtl"] .scroll-progress {
+  transform-origin: right;
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-progress {
+      display: block;
+      animation-name: fill-x;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: scroll(root);
+    }
+
+    /* Section labels wipe in once as they enter. */
+    .section-heading {
+      --reveal: 0;
+      clip-path: inset(0 calc((1 - var(--reveal)) * 100%) 0 0);
+      animation-name: reveal;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: entry 10% entry 45%;
+    }
+
+    [dir="rtl"] .section-heading {
+      clip-path: inset(0 0 0 calc((1 - var(--reveal)) * 100%));
+    }
+  }
+}
+
+@property --reveal {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 1;
+}
+
+@keyframes fill-x {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes reveal {
+  from {
+    --reveal: 0;
+  }
+  to {
+    --reveal: 1;
+  }
 }
 
 .shell {

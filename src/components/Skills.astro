@@ -1,28 +1,44 @@
 ---
-import { profile, type Lang } from "../lib/profile";
+import { profile, homePath, type Lang } from "../lib/profile";
 
 interface Props {
   lang: Lang;
 }
 
 const { lang } = Astro.props;
-const { skills } = profile;
+const { skills, experience } = profile;
+const home = homePath(lang);
+const roles = new Map(experience.items.map((item) => [item.id, item]));
 ---
 
 <section class="skills tone-dark" id="skills" aria-labelledby="skills-heading">
   <div class="shell section section-grid">
-    <h2 class="section-heading" id="skills-heading">{skills.heading[lang]}</h2>
+    <div class="section-heading">
+      <h2 id="skills-heading">{skills.heading[lang]}</h2>
+      <p class="hint">{skills.hint[lang]}</p>
+    </div>
 
     <div class="section-body groups">
       {
         skills.groups.map((group) => (
           <div class="group">
             <h3>{group.name[lang]}</h3>
-            <ul>
+            <ul class="items">
               {group.items.map((item) => (
                 <li>{item[lang]}</li>
               ))}
             </ul>
+            <p class="used">
+              <span class="used-label">{skills.used_in[lang]}</span>
+              {group.used_in.map((id) => {
+                const role = roles.get(id)!;
+                return (
+                  <a class="chip" href={`${home}#exp-${id}`}>
+                    {(role.short ?? role.role)[lang]}
+                  </a>
+                );
+              })}
+            </p>
           </div>
         ))
       }
@@ -31,6 +47,17 @@ const { skills } = profile;
 </section>
 
 <style>
+  .section-heading h2 {
+    font: inherit;
+  }
+
+  .hint {
+    margin-block-start: var(--space-2);
+    color: var(--fg-muted);
+    font-size: 0.8125rem;
+    max-width: 18ch;
+  }
+
   .groups {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -41,6 +68,14 @@ const { skills } = profile;
     .groups {
       grid-template-columns: minmax(0, 1fr);
     }
+
+    .hint {
+      display: none;
+    }
+  }
+
+  .group {
+    transition: opacity var(--dur-base) var(--ease-out);
   }
 
   .group h3 {
@@ -50,12 +85,72 @@ const { skills } = profile;
     font-weight: 500;
   }
 
-  .group ul {
+  .items {
     display: grid;
     gap: var(--space-2);
     margin-block-start: var(--space-4);
     padding: 0;
     list-style: none;
     color: var(--fg-muted);
+  }
+
+  .used {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    margin-block-start: var(--space-4);
+    font-size: 0.8125rem;
+  }
+
+  .used-label {
+    color: var(--fg-muted);
+  }
+
+  .chip {
+    padding: 0.15rem 0.625rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    color: var(--fg-muted);
+    text-decoration: none;
+    transition:
+      color var(--dur-fast) var(--ease-out),
+      border-color var(--dur-fast) var(--ease-out),
+      background-color var(--dur-fast) var(--ease-out);
+  }
+
+  .chip:hover {
+    color: var(--fg);
+    border-color: var(--fg-muted);
+  }
+
+  /* Pointing at (or tabbing into) one group fades the others and lights its roles. */
+  @media (hover: hover) {
+    .groups:has(.group:hover) .group:not(:hover) {
+      opacity: 0.35;
+    }
+
+    .group:hover .chip {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--ok-tint);
+    }
+  }
+
+  .groups:has(.group:focus-within) .group:not(:focus-within) {
+    opacity: 0.35;
+  }
+
+  .group:focus-within .chip {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--ok-tint);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .group,
+    .chip {
+      transition: none;
+    }
   }
 </style>

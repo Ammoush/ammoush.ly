@@ -10,7 +10,8 @@ English at [`/`](https://ammoush.ly/), Arabic at [`/ar/`](https://ammoush.ly/ar/
 - Plain CSS with design tokens and logical properties, so the Arabic (RTL) version mirrors without separate styles
 - CSS scroll-driven animations for the "How I work" sequence and the experience timeline, with no animation library
 - Cross-document View Transitions between languages, and on theme change
-- About 2 KB of JavaScript in total (theme toggle, header tone, copy email)
+- About 4 KB of JavaScript in total (theme toggle, header tone, copy email, hero replay, backdrop)
+- A raw WebGL backdrop behind the hero (no library): half resolution, 30 fps, paused when off screen or hidden, skipped under reduced motion or data saver
 - Built-in Astro CSP with hashed scripts and styles, plus security headers in `public/_headers`
 - Self-hosted fonts: IBM Plex Sans and IBM Plex Sans Arabic, one family across both languages
 - vCard and QR code generated at build time from the same content file

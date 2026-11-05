@@ -50,10 +50,21 @@ hero:
     title: { en: "Reconciliation", ar: "المطابقة" }
     left: { en: "Odoo", ar: "Odoo" }
     right: { en: "App", ar: "التطبيق" }
+    # Illustrative values only, not real figures: each row shows one field that differed and how it was matched.
     rows:
-      - { en: "Orders", ar: "الطلبات" }
-      - { en: "Invoices", ar: "الفواتير" }
-      - { en: "Stock", ar: "المخزون" }
+      - name: { en: "Orders", ar: "الطلبات" }
+        field: { en: "Qty", ar: "الكمية" }
+        value: "12"
+        was: "10"
+      - name: { en: "Invoices", ar: "الفواتير" }
+        field: { en: "Total", ar: "الإجمالي" }
+        value: "340"
+        was: "355"
+      - name: { en: "Stock", ar: "المخزون" }
+        field: { en: "On hand", ar: "المتوفر" }
+        value: "86"
+        was: "81"
+    summary: { en: "of {total} matched", ar: "من {total} مطابقة" }
     mismatch: { en: "Mismatch", ar: "غير مطابق" }
     matched: { en: "Matched", ar: "مطابق" }
     done: { en: "In sync", ar: "متطابق" }
@@ -69,25 +80,29 @@ about:
 how_i_work:
   heading: { en: "How I work", ar: "طريقة عملي" }
   items:
-    - title:
+    - step: { en: "Translate", ar: "أترجم" }
+      title:
         en: "Between operations and technology"
         ar: "بين العمليات والتقنية"
       body:
         en: "I translate operational needs into clear technical specifications for the development team, then verify that what's delivered matches the intended business outcome."
         ar: "أترجم احتياجات العمل إلى مواصفات تقنية واضحة لفريق التطوير، ثم أتحقق من أن ما يُسلَّم يحقق النتيجة المطلوبة فعلاً."
-    - title:
+    - step: { en: "Build", ar: "أبني" }
+      title:
         en: "I build the tools myself"
         ar: "أبني الأدوات بنفسي"
       body:
         en: "Internal tools on the Odoo API: a B2B supplier dashboard, live KPI dashboards in Odoo and Metabase, and Python automation for recurring reports and manual processes."
         ar: "أدوات داخلية على Odoo API: لوحة للموردين (B2B)، ولوحات مؤشرات حيّة في Odoo وMetabase، وأتمتة بـ Python للتقارير والمهام اليدوية المتكررة."
-    - title:
+    - step: { en: "Reconcile", ar: "أطابق" }
+      title:
         en: "Accuracy, documented"
         ar: "دقة موثّقة"
       body:
         en: "I reconcile orders, invoices, and stock across systems, classify every mismatch by root cause, and document the evidence behind each finding."
         ar: "أطابق الطلبات والفواتير والمخزون بين الأنظمة، وأصنّف كل فرق حسب سببه الجذري، وأوثّق الدليل على كل نتيجة."
-    - title:
+    - step: { en: "Grow", ar: "أتطوّر" }
+      title:
         en: "Grown from the ground up"
         ar: "من الميدان إلى الإدارة"
       body:
@@ -98,8 +113,14 @@ experience:
   heading: { en: "Experience", ar: "الخبرة" }
   present: { en: "Present", ar: "الآن" }
   range_to: { en: "to", ar: "إلى" }
+  status:
+    current: { en: "Current", ar: "الحالي" }
+    completed: { en: "Completed", ar: "مكتمل" }
+    graduated: { en: "Graduated", ar: "تخرّج" }
   items:
     - kind: role
+      id: tom
+      short: { en: "Technical Operations", ar: "العمليات التقنية" }
       role:
         en: "Technical Operations Manager"
         ar: "مدير العمليات التقنية"
@@ -122,6 +143,8 @@ experience:
           ar: "المسؤول الأول عن أعطال Odoo والتطبيق: أعالج حالات تعثّر المزامنة والطلبات العالقة بحلول مؤقتة حتى إصلاح السبب الجذري."
 
     - kind: role
+      id: cs
+      short: { en: "Category Supervisor", ar: "مشرف فئة" }
       role:
         en: "Category Supervisor"
         ar: "مشرف فئة"
@@ -139,6 +162,8 @@ experience:
           ar: "كُلّفت في 2025 برفع مستوى المبيعات وجودة الخدمة في مخزن فرع بنغازي."
 
     - kind: role
+      id: warehouse
+      short: { en: "Warehouse", ar: "المخزن" }
       role:
         en: "Warehouse Manager"
         ar: "مدير مخزن"
@@ -150,6 +175,7 @@ experience:
         ar: "أدرت الاستلام والتخزين والصرف ومطابقة المخزون، وقدت فريق المخزن، وحافظت على توازن مستويات المخزون مع المشتريات والإنتاج."
 
     - kind: education
+      id: bsc
       role:
         en: "BSc in Computer Science"
         ar: "بكالوريوس علوم الحاسوب"
@@ -161,6 +187,8 @@ experience:
         ar: "تفرغ كامل للدراسة، وتخرجت في فبراير 2023."
 
     - kind: role
+      id: helpdesk
+      short: { en: "Sales Helpdesk", ar: "دعم المبيعات" }
       role:
         en: "Sales Helpdesk Officer"
         ar: "مسؤول مكتب دعم المبيعات"
@@ -172,6 +200,8 @@ experience:
         ar: "أشرفت على عمليات البيع اليومية والإقفال المالي، وعالجت مشكلات العملاء المتعلقة بالنظام."
 
     - kind: role
+      id: support
+      short: { en: "Technical Support", ar: "الدعم الفني" }
       role:
         en: "Technical Support Specialist"
         ar: "أخصائي دعم فني"
@@ -184,8 +214,12 @@ experience:
 
 skills:
   heading: { en: "Skills", ar: "المهارات" }
+  # used_in lists experience ids; hovering a group lights up those roles.
+  used_in: { en: "Used in", ar: "استُخدمت في" }
+  hint: { en: "Point at a group to see where it was used", ar: "مرّر على مجموعة لترى أين استُخدمت" }
   groups:
     - name: { en: "ERP · Odoo 16 / 19", ar: "ERP · Odoo 16 / 19" }
+      used_in: [tom, cs]
       items:
         - { en: "Functional: Sales, Inventory, Purchase, Accounting", ar: "الجانب الوظيفي: المبيعات، المخزون، المشتريات، المالية" }
         - { en: "User access and roles", ar: "صلاحيات المستخدمين والأدوار" }
@@ -196,6 +230,7 @@ skills:
         - { en: "New branch and warehouse setup", ar: "تجهيز الفروع والمخازن الجديدة" }
         - { en: "Migration checks", ar: "التحقق من ملفات الترحيل" }
     - name: { en: "Data & analytics", ar: "البيانات والتحليلات" }
+      used_in: [tom, cs]
       items:
         - { en: "SQL", ar: "SQL" }
         - { en: "Excel", ar: "Excel" }
@@ -205,6 +240,7 @@ skills:
         - { en: "KPI definition", ar: "تعريف مؤشرات الأداء" }
         - { en: "Management dashboards", ar: "لوحات الإدارة" }
     - name: { en: "Operations", ar: "العمليات" }
+      used_in: [tom, cs, warehouse, helpdesk]
       items:
         - { en: "Incident management", ar: "إدارة الأعطال" }
         - { en: "Inventory and procurement control", ar: "ضبط المخزون والمشتريات" }
@@ -213,6 +249,7 @@ skills:
         - { en: "Team leadership", ar: "قيادة الفرق" }
         - { en: "Cross-functional coordination", ar: "التنسيق بين الأقسام" }
     - name: { en: "Development & automation", ar: "التطوير والأتمتة" }
+      used_in: [tom, support]
       items:
         - { en: "Odoo API / RPC integrations", ar: "تكاملات Odoo API / RPC" }
         - { en: "Python automation", ar: "الأتمتة بـ Python" }

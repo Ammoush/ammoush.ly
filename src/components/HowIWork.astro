@@ -13,15 +13,29 @@ const { how_i_work } = profile;
   <div class="shell">
     <h2 class="section-heading" id="hiw-heading">{how_i_work.heading[lang]}</h2>
 
-    <div class="stage">
-      {
-        how_i_work.items.map((item) => (
-          <article class="item">
-            <h3>{item.title[lang]}</h3>
-            <p>{item.body[lang]}</p>
-          </article>
-        ))
-      }
+    <div class="body">
+      {/* The four steps as a pipeline; the rail fills as the statements scroll by. */}
+      <ol class="flow" aria-hidden="true">
+        {
+          how_i_work.items.map((item) => (
+            <li class="flow-step">
+              <i></i>
+              <span>{item.step[lang]}</span>
+            </li>
+          ))
+        }
+      </ol>
+
+      <div class="stage">
+        {
+          how_i_work.items.map((item) => (
+            <article class="item">
+              <h3>{item.title[lang]}</h3>
+              <p>{item.body[lang]}</p>
+            </article>
+          ))
+        }
+      </div>
     </div>
 
     <ol class="progress" aria-hidden="true">
@@ -35,10 +49,16 @@ const { how_i_work } = profile;
     padding-block: var(--space-10);
   }
 
+  .body {
+    display: grid;
+    grid-template-columns: 9rem minmax(0, 1fr);
+    column-gap: var(--space-8);
+    margin-block-start: var(--space-7);
+  }
+
   .stage {
     display: grid;
     gap: var(--space-9);
-    margin-block-start: var(--space-7);
   }
 
   .item h3 {
@@ -57,6 +77,66 @@ const { how_i_work } = profile;
     max-width: 52ch;
     font-size: var(--step-1);
     color: var(--fg-muted);
+  }
+
+  /* Pipeline rail */
+
+  .flow {
+    position: relative;
+    display: grid;
+    align-content: start;
+    gap: var(--space-7);
+    padding: 0;
+    list-style: none;
+    font-size: var(--step--1);
+  }
+
+  /* The rail (::before) and its accent fill (::after). */
+  .flow::before,
+  .flow::after {
+    content: "";
+    position: absolute;
+    inset-block: 0.5rem;
+    inset-inline-start: 0.4375rem;
+    width: 2px;
+    background: var(--rule);
+  }
+
+  .flow::after {
+    background: var(--accent);
+    transform-origin: top;
+  }
+
+  .flow-step {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: var(--fg-muted);
+  }
+
+  .flow-step i {
+    flex: none;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 2px solid var(--rule);
+    background: var(--bg);
+    box-sizing: border-box;
+  }
+
+  .flow-step span {
+    transition: color var(--dur-fast) var(--ease-out);
+  }
+
+  /* Without scroll timelines everything is shown complete. */
+  .flow-step i {
+    border-color: var(--accent);
+    background: var(--accent);
+  }
+
+  .flow-step {
+    color: var(--fg);
   }
 
   .progress {
@@ -84,9 +164,14 @@ const { how_i_work } = profile;
         padding-block: calc(var(--header-h) + var(--space-7)) var(--space-7);
       }
 
-      .stage {
+      .body {
         align-items: center;
         margin: 0;
+      }
+
+      .stage {
+        display: grid;
+        align-items: center;
       }
 
       .item {
@@ -110,6 +195,49 @@ const { how_i_work } = profile;
       .item:nth-child(4) {
         animation-name: hiw-enter;
         animation-range: contain 75% contain 100%;
+      }
+
+      .flow::after {
+        animation-name: hiw-fill-y;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: --hiw;
+        animation-range: contain 0% contain 90%;
+      }
+
+      .flow-step i {
+        border-color: var(--rule);
+        background: var(--bg);
+        animation-name: step-on;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: --hiw;
+      }
+
+      .flow-step {
+        color: var(--fg-muted);
+        animation-name: step-text;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: --hiw;
+      }
+
+      /* Steps light up a little before their statement takes the stage. */
+      .flow-step:nth-of-type(1),
+      .flow-step:nth-of-type(1) i {
+        animation-range: contain 0% contain 1%;
+      }
+      .flow-step:nth-of-type(2),
+      .flow-step:nth-of-type(2) i {
+        animation-range: contain 22% contain 28%;
+      }
+      .flow-step:nth-of-type(3),
+      .flow-step:nth-of-type(3) i {
+        animation-range: contain 47% contain 53%;
+      }
+      .flow-step:nth-of-type(4),
+      .flow-step:nth-of-type(4) i {
+        animation-range: contain 72% contain 78%;
       }
 
       .progress {
@@ -154,6 +282,28 @@ const { how_i_work } = profile;
       .progress li:nth-child(4)::after {
         animation-range: contain 75% contain 100%;
       }
+    }
+  }
+
+  @keyframes step-on {
+    to {
+      border-color: var(--accent);
+      background: var(--accent);
+    }
+  }
+
+  @keyframes step-text {
+    to {
+      color: var(--fg);
+    }
+  }
+
+  @keyframes hiw-fill-y {
+    from {
+      transform: scaleY(0);
+    }
+    to {
+      transform: scaleY(1);
     }
   }
 
@@ -203,6 +353,50 @@ const { how_i_work } = profile;
     }
     to {
       transform: scaleX(1);
+    }
+  }
+
+  @media (max-width: 47.99rem) {
+    .body {
+      grid-template-columns: minmax(0, 1fr);
+      row-gap: var(--space-6);
+    }
+
+    .flow {
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(0, 1fr);
+      gap: var(--space-2);
+    }
+
+    .flow::before,
+    .flow::after {
+      inset-block: 0.4375rem auto;
+      inset-inline: 0.5rem;
+      width: auto;
+      height: 2px;
+    }
+
+    .flow::after {
+      transform-origin: left;
+    }
+
+    :global([dir="rtl"]) .flow::after {
+      transform-origin: right;
+    }
+
+    .flow-step {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-2);
+      font-size: 0.75rem;
+    }
+
+    @supports (animation-timeline: view()) {
+      @media (prefers-reduced-motion: no-preference) {
+        .flow::after {
+          animation-name: hiw-fill;
+        }
+      }
     }
   }
 </style>

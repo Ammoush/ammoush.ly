@@ -36,7 +36,10 @@ const schema = z.object({
       title: text,
       left: text,
       right: text,
-      rows: z.array(text).min(2).max(4),
+      rows: z
+        .array(z.object({ name: text, field: text, value: z.string(), was: z.string() }))
+        .length(3, "The panel animation is timed for exactly three rows"),
+      summary: text,
       mismatch: text,
       matched: text,
       done: text,
@@ -47,15 +50,18 @@ const schema = z.object({
   about: z.object({ heading: text, body: text }),
   how_i_work: z.object({
     heading: text,
-    items: z.array(z.object({ title: text, body: text })).length(4),
+    items: z.array(z.object({ step: text, title: text, body: text })).length(4),
   }),
   experience: z.object({
     heading: text,
     present: text,
     range_to: text,
+    status: z.object({ current: text, completed: text, graduated: text }),
     items: z.array(
       z.object({
         kind: z.enum(["role", "education"]),
+        id: z.string().regex(/^[a-z]+$/),
+        short: text.optional(),
         role: text,
         org: z.string(),
         start: month.nullable(),
@@ -67,7 +73,9 @@ const schema = z.object({
   }),
   skills: z.object({
     heading: text,
-    groups: z.array(z.object({ name: text, items: z.array(text).min(1) })),
+    used_in: text,
+    hint: text,
+    groups: z.array(z.object({ name: text, used_in: z.array(z.string()).min(1), items: z.array(text).min(1) })),
   }),
   education: z.object({
     heading: text,
@@ -115,6 +123,14 @@ function load(): Profile {
 }
 
 export const profile = load();
+
+{
+  const ids = new Set(profile.experience.items.map((item) => item.id));
+  for (const group of profile.skills.groups) {
+    const unknown = group.used_in.filter((id) => !ids.has(id));
+    if (unknown.length) throw new Error(`src/content/profile.yaml: skills group "${group.name.en}" uses unknown experience ids: ${unknown.join(", ")}`);
+  }
+}
 
 export const dir = (lang: Lang) => (lang === "ar" ? "rtl" : "ltr");
 export const otherLang = (lang: Lang): Lang => (lang === "ar" ? "en" : "ar");

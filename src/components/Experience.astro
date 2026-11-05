@@ -7,6 +7,9 @@ interface Props {
 
 const { lang } = Astro.props;
 const { experience } = profile;
+
+const stamp = (item: (typeof experience.items)[number]) =>
+  item.kind === "education" ? experience.status.graduated : item.end ? experience.status.completed : experience.status.current;
 ---
 
 <section class="experience tone-light" id="experience" aria-labelledby="experience-heading">
@@ -16,14 +19,17 @@ const { experience } = profile;
     <ol class="section-body timeline">
       {
         experience.items.map((item) => (
-          <li class:list={["entry", `entry-${item.kind}`]}>
+          <li class:list={["entry", `entry-${item.kind}`, { current: !item.end && item.kind === "role" }]} id={`exp-${item.id}`}>
             <p class="when">
               {item.start && <time datetime={toIso(item.start)}>{formatMonth(item.start, lang)}</time>}
               {item.start && ` ${experience.range_to[lang]} `}
               {item.end ? <time datetime={toIso(item.end)}>{formatMonth(item.end, lang)}</time> : experience.present[lang]}
             </p>
             <div class="what">
-              <h3>{item.role[lang]}</h3>
+              <div class="title-row">
+                <h3>{item.role[lang]}</h3>
+                <span class="stamp">{stamp(item)[lang]}</span>
+              </div>
               <p class="org">{item.org}</p>
               {item.summary && <p class="summary">{item.summary[lang]}</p>}
               {item.highlights && (
@@ -78,6 +84,15 @@ const { experience } = profile;
         animation-timeline: view();
         animation-range: cover 15% cover 75%;
       }
+
+      /* Each status presses in like a stamp when its entry reaches the middle of the screen. */
+      .stamp {
+        animation-name: press;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: view();
+        animation-range: entry 30% entry 70%;
+      }
     }
   }
 
@@ -93,12 +108,24 @@ const { experience } = profile;
     }
   }
 
+  @keyframes press {
+    from {
+      opacity: 0;
+      transform: scale(1.4) rotate(-6deg);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   .entry {
     position: relative;
     display: grid;
     grid-template-columns: 11rem minmax(0, 1fr);
     column-gap: var(--space-6);
     padding-inline-start: calc(var(--marker) + var(--space-5));
+    scroll-margin-top: calc(var(--header-h) + var(--space-5));
   }
 
   .entry::before {
@@ -120,6 +147,18 @@ const { experience } = profile;
     border: 1.5px solid var(--accent);
   }
 
+  /* Landing here from a skill group lights the entry up briefly. */
+  .entry:target .what {
+    animation: flash 1600ms var(--ease-out) both;
+  }
+
+  @keyframes flash {
+    from {
+      box-shadow: inset 4px 0 0 var(--accent);
+      background: color-mix(in oklab, var(--accent) 10%, transparent);
+    }
+  }
+
   .when {
     color: var(--fg-muted);
     font-size: var(--step--1);
@@ -127,9 +166,39 @@ const { experience } = profile;
     padding-block-start: 0.15rem;
   }
 
+  .what {
+    border-radius: var(--radius-sm);
+    margin-inline: calc(var(--space-3) * -1);
+    padding-inline: var(--space-3);
+  }
+
+  .title-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2) var(--space-3);
+  }
+
   .what h3 {
     font-size: var(--step-2);
     font-weight: 600;
+  }
+
+  .stamp {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border: 1.5px solid var(--fg-muted);
+    border-radius: 4px;
+    color: var(--fg-muted);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+  }
+
+  .current .stamp {
+    border-color: var(--accent);
+    color: var(--accent);
   }
 
   .org {
