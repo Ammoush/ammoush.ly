@@ -23,6 +23,16 @@ const c = hero.console;
           {hero.cta_secondary[lang]}
         </a>
       </div>
+      {
+        contact.cv && (
+          <a class="cv-link" href={contact.cv} download>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M8 2.5v8m0 0 3-3m-3 3-3-3M3 13.5h10"></path>
+            </svg>
+            {profile.contact_section.actions.download_cv[lang]}
+          </a>
+        )
+      }
     </div>
 
     <div class="console" data-console>
@@ -155,6 +165,25 @@ const c = hero.console;
     flex-wrap: wrap;
     gap: var(--space-3);
     margin-block-start: var(--space-6);
+  }
+
+  .cv-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-block-start: var(--space-4);
+    color: var(--fg-muted);
+    font-size: var(--step--1);
+    text-underline-offset: 0.25em;
+  }
+
+  .cv-link:hover {
+    color: var(--fg);
+  }
+
+  .cv-link svg {
+    width: 1rem;
+    height: 1rem;
   }
 
   /* Reconciliation panel: the one rich moment on the first screen. */

@@ -1,11 +1,11 @@
-# Site content — every visible string lives here, in English (en) and Arabic (ar).
+# Site content: every visible string lives here, in English (en) and Arabic (ar).
 # Edit the text between the quotes, keep the keys as they are.
 # Dates use YYYY-MM; `end: null` means "Present".
 
 meta:
   title:
-    en: "Ahmed Ammoush — Technical Operations Manager"
-    ar: "أحمد عموش — مدير العمليات التقنية"
+    en: "Ahmed Ammoush | Technical Operations Manager"
+    ar: "أحمد عموش | مدير العمليات التقنية"
   description:
     en: "Technical Operations Manager working across ERP (Odoo), data, and operations. Based in Tripoli, Libya."
     ar: "مدير العمليات التقنية، أعمل في مجالات أنظمة ERP (Odoo) والبيانات والعمليات. مقيم في طرابلس، ليبيا."
@@ -40,7 +40,7 @@ nav:
 
 hero:
   tagline:
-    en: "I keep ERP systems, data, and operations in sync — and build the tools that make them run better."
+    en: "I keep ERP systems, data, and operations in sync, and build the tools that make them run better."
     ar: "أحافظ على تناغم أنظمة ERP والبيانات والعمليات، وأبني الأدوات التي ترفع كفاءتها."
   cta_primary: { en: "Get in touch", ar: "تواصل معي" }
   cta_secondary: { en: "LinkedIn", ar: "LinkedIn" }
@@ -63,7 +63,7 @@ hero:
 about:
   heading: { en: "About", ar: "نبذة" }
   body:
-    en: "Technical Operations Manager at Presto, with about six years across IT support, ERP operations, and data. I turn operational needs into reliable systems — and the tools that keep them running."
+    en: "Technical Operations Manager at Presto, with about six years across IT support, ERP operations, and data. I turn operational needs into reliable systems and the tools that keep them running."
     ar: "مدير العمليات التقنية في Presto، بخبرة تقارب ست سنوات في الدعم الفني وتشغيل أنظمة ERP والبيانات. أحوّل احتياجات العمل اليومية إلى أنظمة موثوقة، وإلى أدوات تضمن استمرارها."
 
 how_i_work:
@@ -91,12 +91,13 @@ how_i_work:
         en: "Grown from the ground up"
         ar: "من الميدان إلى الإدارة"
       body:
-        en: "From technical support and warehouse operations to running technical operations — I know how the work actually gets done."
+        en: "From technical support and warehouse operations to running technical operations. I know how the work actually gets done."
         ar: "من الدعم الفني وإدارة المخازن إلى إدارة العمليات التقنية؛ أعرف كيف يُنجَز العمل على أرض الواقع."
 
 experience:
   heading: { en: "Experience", ar: "الخبرة" }
   present: { en: "Present", ar: "الآن" }
+  range_to: { en: "to", ar: "إلى" }
   items:
     - kind: role
       role:
@@ -109,15 +110,15 @@ experience:
         en: "Grocery Division. Promoted from Category Supervisor. The technical link between operations and the development team."
         ar: "قسم المواد الغذائية. تمت ترقيتي من مشرف فئة. حلقة الوصل التقنية بين العمليات وفريق التطوير."
       highlights:
-        - en: "Built internal tools on the Odoo API — a B2B supplier dashboard, live KPI dashboards in Odoo and Metabase, and Python automation of recurring reports and manual processes."
+        - en: "Built internal tools on the Odoo API: a B2B supplier dashboard, live KPI dashboards in Odoo and Metabase, and Python automation of recurring reports and manual processes."
           ar: "بنيت أدوات داخلية على Odoo API: لوحة للموردين (B2B)، ولوحات مؤشرات حيّة في Odoo وMetabase، وأتمتة بـ Python للتقارير والعمليات اليدوية المتكررة."
         - en: "Run regular reconciliation of orders, invoices, and stock between Odoo and the app, with every mismatch classified by root cause."
           ar: "أجري مطابقة دورية للطلبات والفواتير والمخزون بين Odoo والتطبيق، مع تصنيف كل فرق حسب سببه الجذري."
-        - en: "Defined the KPI framework — formulas, data sources, and baselines — for the operations plan presented to management."
+        - en: "Defined the KPI framework (formulas, data sources, and baselines) for the operations plan presented to management."
           ar: "وضعت إطار مؤشرات الأداء (الصيغ ومصادر البيانات وخطوط الأساس) لخطة العمليات المقدّمة للإدارة."
         - en: "Own change and access control: every change tested in staging before production, user roles and segregation of duties managed, bulk data updates reviewed before they're applied."
           ar: "أتولى ضبط التغييرات والصلاحيات: اختبار كل تغيير في بيئة staging قبل الإنتاج، وإدارة أدوار المستخدمين وفصل المهام، ومراجعة تحديثات البيانات المجمّعة قبل تطبيقها."
-        - en: "First-line owner of Odoo and app incidents — resolving data-sync and stuck-order cases with workarounds until the root cause is fixed."
+        - en: "First-line owner of Odoo and app incidents, resolving data-sync and stuck-order cases with workarounds until the root cause is fixed."
           ar: "المسؤول الأول عن أعطال Odoo والتطبيق: أعالج حالات تعثّر المزامنة والطلبات العالقة بحلول مؤقتة حتى إصلاح السبب الجذري."
 
     - kind: role
@@ -236,7 +237,7 @@ languages:
 contact_section:
   heading: { en: "Let's talk", ar: "لنتحدث" }
   body:
-    en: "Whether it's a role, a project, or a conversation about ERP and data — I'm happy to hear from you."
+    en: "Whether it's a role, a project, or a conversation about ERP and data, I'm happy to hear from you."
     ar: "سواء كانت فرصة عمل، أو مشروعاً، أو حديثاً مهنياً عن ERP والبيانات، يسعدني أن تتواصل معي."
   actions:
     copy_email: { en: "Copy email", ar: "نسخ البريد" }

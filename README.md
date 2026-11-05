@@ -1,6 +1,6 @@
 # ammoush.ly
 
-Personal site of Ahmed Ammoush — Technical Operations Manager working across ERP (Odoo), data, and operations.
+Personal site of Ahmed Ammoush, Technical Operations Manager, working across ERP (Odoo), data, and operations.
 
 English at [`/`](https://ammoush.ly/), Arabic at [`/ar/`](https://ammoush.ly/ar/).
 
@@ -8,7 +8,7 @@ English at [`/`](https://ammoush.ly/), Arabic at [`/ar/`](https://ammoush.ly/ar/
 
 - [Astro](https://astro.build) 7, static output
 - Plain CSS with design tokens and logical properties, so the Arabic (RTL) version mirrors without separate styles
-- CSS scroll-driven animations for the "How I work" sequence and the experience timeline — no animation library
+- CSS scroll-driven animations for the "How I work" sequence and the experience timeline, with no animation library
 - Cross-document View Transitions between languages, and on theme change
 - About 2 KB of JavaScript in total (theme toggle, header tone, copy email)
 - Built-in Astro CSP with hashed scripts and styles, plus security headers in `public/_headers`

@@ -52,6 +52,7 @@ const schema = z.object({
   experience: z.object({
     heading: text,
     present: text,
+    range_to: text,
     items: z.array(
       z.object({
         kind: z.enum(["role", "education"]),
