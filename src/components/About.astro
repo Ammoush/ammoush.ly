@@ -1,0 +1,35 @@
+---
+import { profile, type Lang } from "../lib/profile";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { about } = profile;
+---
+
+<section class="about tone-light" id="about" aria-labelledby="about-heading">
+  <div class="shell section section-grid">
+    <h2 class="section-heading" id="about-heading">{about.heading[lang]}</h2>
+    <p class="section-body statement">{about.body[lang]}</p>
+  </div>
+</section>
+
+<style>
+  .statement {
+    font-size: var(--step-3);
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: var(--tracking-heading);
+    max-width: 26em;
+  }
+
+  :global(:lang(ar)) .statement {
+    line-height: 1.6;
+  }
+
+  .section {
+    padding-block-start: var(--space-8);
+  }
+</style>

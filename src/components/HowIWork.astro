@@ -1,0 +1,208 @@
+---
+import { profile, type Lang } from "../lib/profile";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { how_i_work } = profile;
+---
+
+<section class="hiw tone-dark" id="how-i-work" aria-labelledby="hiw-heading">
+  <div class="shell">
+    <h2 class="section-heading" id="hiw-heading">{how_i_work.heading[lang]}</h2>
+
+    <div class="stage">
+      {
+        how_i_work.items.map((item) => (
+          <article class="item">
+            <h3>{item.title[lang]}</h3>
+            <p>{item.body[lang]}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <ol class="progress" aria-hidden="true">
+      {how_i_work.items.map(() => <li />)}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .shell {
+    padding-block: var(--space-10);
+  }
+
+  .stage {
+    display: grid;
+    gap: var(--space-9);
+    margin-block-start: var(--space-7);
+  }
+
+  .item h3 {
+    font-size: var(--step-4);
+    line-height: 1.02;
+    letter-spacing: var(--tracking-display);
+    max-width: 16ch;
+  }
+
+  :global(:lang(ar)) .item h3 {
+    line-height: 1.25;
+  }
+
+  .item p {
+    margin-block-start: var(--space-5);
+    max-width: 52ch;
+    font-size: var(--step-1);
+    color: var(--fg-muted);
+  }
+
+  .progress {
+    display: none;
+  }
+
+  /*
+   * Scroll-driven version: the section is four screens tall, the stage sticks,
+   * and each statement owns a quarter of the scroll range. Browsers without
+   * scroll timelines, and reduced-motion users, keep the stacked layout above.
+   */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .hiw {
+        height: 400svh;
+        view-timeline: --hiw block;
+      }
+
+      .shell {
+        position: sticky;
+        top: 0;
+        height: 100svh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        padding-block: calc(var(--header-h) + var(--space-7)) var(--space-7);
+      }
+
+      .stage {
+        align-items: center;
+        margin: 0;
+      }
+
+      .item {
+        grid-area: 1 / 1;
+        animation-name: hiw-swap;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: --hiw;
+      }
+
+      .item:nth-child(1) {
+        animation-name: hiw-leave;
+        animation-range: contain 0% contain 25%;
+      }
+      .item:nth-child(2) {
+        animation-range: contain 25% contain 50%;
+      }
+      .item:nth-child(3) {
+        animation-range: contain 50% contain 75%;
+      }
+      .item:nth-child(4) {
+        animation-name: hiw-enter;
+        animation-range: contain 75% contain 100%;
+      }
+
+      .progress {
+        display: grid;
+        grid-template-columns: repeat(4, 2.5rem);
+        gap: var(--space-2);
+        padding: 0;
+        list-style: none;
+      }
+
+      .progress li {
+        height: 2px;
+        background: var(--rule);
+        overflow: hidden;
+      }
+
+      .progress li::after {
+        content: "";
+        display: block;
+        height: 100%;
+        background: var(--accent);
+        transform-origin: left;
+        animation-name: hiw-fill;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: --hiw;
+      }
+
+      :global([dir="rtl"]) .progress li::after {
+        transform-origin: right;
+      }
+
+      .progress li:nth-child(1)::after {
+        animation-range: contain 0% contain 25%;
+      }
+      .progress li:nth-child(2)::after {
+        animation-range: contain 25% contain 50%;
+      }
+      .progress li:nth-child(3)::after {
+        animation-range: contain 50% contain 75%;
+      }
+      .progress li:nth-child(4)::after {
+        animation-range: contain 75% contain 100%;
+      }
+    }
+  }
+
+  @keyframes hiw-swap {
+    0% {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    22%,
+    78% {
+      opacity: 1;
+      transform: none;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-2rem);
+    }
+  }
+
+  @keyframes hiw-leave {
+    0%,
+    78% {
+      opacity: 1;
+      transform: none;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-2rem);
+    }
+  }
+
+  @keyframes hiw-enter {
+    0% {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    22%,
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes hiw-fill {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+</style>

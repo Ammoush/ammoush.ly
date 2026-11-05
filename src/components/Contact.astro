@@ -1,0 +1,136 @@
+---
+import { profile, type Lang } from "../lib/profile";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { contact, contact_section: section } = profile;
+const { actions } = section;
+const whatsapp = `https://wa.me/${contact.phone.replace("+", "")}`;
+---
+
+<section class="contact tone-dark" id="contact" aria-labelledby="contact-heading">
+  <div class="shell section section-grid">
+    <div class="section-body intro">
+      <h2 id="contact-heading">{section.heading[lang]}</h2>
+      <p>{section.body[lang]}</p>
+    </div>
+
+    <dl class="section-body channels">
+      <div class="channel">
+        <dt class="visually-hidden">{profile.ui.email[lang]}</dt>
+        <dd>
+          <a class="value" href={`mailto:${contact.email}`} dir="ltr">{contact.email}</a>
+          <button
+            class="button button-secondary copy"
+            type="button"
+            data-copy={contact.email}
+            data-label={actions.copy_email[lang]}
+            data-done={actions.copied[lang]}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+              <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path>
+            </svg>
+            <span>{actions.copy_email[lang]}</span>
+          </button>
+        </dd>
+      </div>
+      <div class="channel">
+        <dt class="visually-hidden">{actions.whatsapp[lang]}</dt>
+        <dd>
+          <a class="value" href={whatsapp} rel="noopener" target="_blank" dir="ltr">{contact.phone_display}</a>
+          <a class="button button-secondary" href={whatsapp} rel="noopener" target="_blank">{actions.whatsapp[lang]}</a>
+        </dd>
+      </div>
+    </dl>
+
+    <ul class="section-body links">
+      <li><a class="button button-primary" href={contact.linkedin} rel="me noopener" target="_blank">{actions.linkedin[lang]}</a></li>
+      {
+        contact.github && (
+          <li>
+            <a class="button button-secondary" href={contact.github} rel="me noopener" target="_blank">
+              {actions.github[lang]}
+            </a>
+          </li>
+        )
+      }
+      <li>
+        <a class="button button-secondary" href="/ahmed-ammoush.vcf" download>{actions.save_contact[lang]}</a>
+      </li>
+      {
+        contact.cv && (
+          <li>
+            <a class="button button-secondary" href={contact.cv} download>
+              {actions.download_cv[lang]}
+            </a>
+          </li>
+        )
+      }
+    </ul>
+
+    <p class="visually-hidden" aria-live="polite" data-copy-status></p>
+  </div>
+</section>
+
+<style>
+  .intro h2 {
+    font-size: var(--step-4);
+    line-height: 1.02;
+    letter-spacing: var(--tracking-display);
+  }
+
+  :global(:lang(ar)) .intro h2 {
+    line-height: 1.25;
+  }
+
+  .intro p {
+    margin-block-start: var(--space-5);
+    max-width: 46ch;
+    font-size: var(--step-1);
+    color: var(--fg-muted);
+  }
+
+  .channels {
+    display: grid;
+    gap: var(--space-5);
+    margin-block-start: var(--space-6);
+    padding-block-start: var(--space-6);
+    border-block-start: 1px solid var(--rule);
+  }
+
+  .channel dd {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3) var(--space-5);
+    margin: 0;
+  }
+
+  .value {
+    font-size: var(--step-3);
+    font-weight: 500;
+    letter-spacing: var(--tracking-heading);
+    text-decoration: none;
+    font-family: var(--font-latin);
+    unicode-bidi: isolate;
+    overflow-wrap: anywhere;
+  }
+
+  .value:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding: 0;
+    list-style: none;
+  }
+</style>

@@ -1,0 +1,68 @@
+---
+import { profile, otherLang, homePath, type Lang } from "../lib/profile";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { footer, ui, contact } = profile;
+const other = otherLang(lang);
+---
+
+<footer class="site-footer tone-dark">
+  <div class="shell">
+    <p>{footer.copyright[lang]}</p>
+    <p class="built">
+      <span>{footer.built_with[lang]}</span>
+      {contact.source && <a href={contact.source} rel="noopener" target="_blank">{footer.source[lang]}</a>}
+    </p>
+    <ul>
+      <li><a href="/qr.svg" download="ammoush-ly-qr.svg">{ui.qr[lang]}</a></li>
+      <li><a href={homePath(other)} hreflang={other} lang={other}>{ui.switch_language[lang]}</a></li>
+    </ul>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--bg);
+    color: var(--fg-muted);
+    font-size: var(--step--1);
+  }
+
+  .shell {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3) var(--space-6);
+    padding-block: var(--space-6);
+    border-block-start: 1px solid var(--rule);
+  }
+
+  .built {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-inline-start: auto;
+  }
+
+  ul {
+    display: flex;
+    gap: var(--space-5);
+    padding: 0;
+    list-style: none;
+  }
+
+  a {
+    color: var(--fg);
+  }
+
+  a:lang(ar) {
+    font-family: var(--font-arabic);
+  }
+
+  a:lang(en) {
+    font-family: var(--font-latin);
+  }
+</style>

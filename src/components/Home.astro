@@ -1,0 +1,27 @@
+---
+import Base from "../layouts/Base.astro";
+import Hero from "./Hero.astro";
+import About from "./About.astro";
+import HowIWork from "./HowIWork.astro";
+import Experience from "./Experience.astro";
+import Skills from "./Skills.astro";
+import Background from "./Background.astro";
+import Contact from "./Contact.astro";
+import type { Lang } from "../lib/profile";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<Base lang={lang}>
+  <Hero lang={lang} />
+  <About lang={lang} />
+  <HowIWork lang={lang} />
+  <Experience lang={lang} />
+  <Skills lang={lang} />
+  <Background lang={lang} />
+  <Contact lang={lang} />
+</Base>

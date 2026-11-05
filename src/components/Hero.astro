@@ -1,0 +1,169 @@
+---
+import { profile, type Lang } from "../lib/profile";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { person, hero, contact } = profile;
+const [first, ...rest] = person.name[lang].split(" ");
+---
+
+<section class="hero tone-light" id="top" aria-labelledby="hero-name">
+  <div class="shell">
+    <h1 class="hero-name" id="hero-name"><span>{first}</span> <span>{rest.join(" ")}</span></h1>
+
+    <div class="hero-meta">
+      <p class="hero-role">{person.title[lang]}</p>
+      <p class="hero-location">{person.location[lang]}</p>
+    </div>
+
+    <div class="hero-pitch">
+      <p>{hero.tagline[lang]}</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#contact">{hero.cta_primary[lang]}</a>
+        <a class="button button-secondary" href={contact.linkedin} rel="me noopener" target="_blank">
+          {hero.cta_secondary[lang]}
+        </a>
+      </div>
+    </div>
+
+    <ul class="sync" aria-label={hero.domains.label[lang]}>
+      {hero.domains.items.map((item) => <li>{item[lang]}</li>)}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: calc(100svh - var(--header-h));
+    display: flex;
+  }
+
+  .shell {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: 1fr auto auto;
+    column-gap: var(--space-5);
+    padding-block: var(--space-8) var(--space-7);
+  }
+
+  .hero-name {
+    grid-column: 1 / -1;
+    align-self: end;
+    font-size: var(--step-display);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-display);
+    font-weight: 600;
+  }
+
+  .hero-name span {
+    display: block;
+  }
+
+  .hero-meta {
+    grid-column: 1 / span 5;
+    margin-block-start: var(--space-6);
+  }
+
+  .hero-role {
+    font-size: var(--step-2);
+    font-weight: 500;
+    letter-spacing: var(--tracking-heading);
+    line-height: var(--leading-snug);
+  }
+
+  .hero-location {
+    margin-block-start: var(--space-2);
+    color: var(--fg-muted);
+    font-size: var(--step--1);
+  }
+
+  .hero-pitch {
+    grid-column: 7 / -1;
+    margin-block-start: var(--space-6);
+  }
+
+  .hero-pitch p {
+    font-size: var(--step-1);
+    line-height: 1.45;
+    max-width: 34ch;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-block-start: var(--space-5);
+  }
+
+  /* The one orchestrated moment: the three domains settle onto one line. */
+  .sync {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-block-start: var(--space-8);
+    padding: 0;
+    list-style: none;
+    font-size: var(--step--1);
+    color: var(--fg-muted);
+  }
+
+  .sync li {
+    position: relative;
+    padding-block-start: var(--space-3);
+  }
+
+  .sync li::before {
+    content: "";
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: 0;
+    height: 1px;
+    background: var(--fg);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .sync li {
+      animation: settle var(--dur-slow) var(--ease-out) both;
+      animation-delay: 350ms;
+    }
+
+    .sync li:nth-child(1) {
+      --from: -0.875rem;
+    }
+
+    .sync li:nth-child(2) {
+      --from: 0.625rem;
+      animation-delay: 430ms;
+    }
+
+    .sync li:nth-child(3) {
+      --from: -0.375rem;
+      animation-delay: 510ms;
+    }
+  }
+
+  @keyframes settle {
+    from {
+      transform: translateY(var(--from, 0));
+      opacity: 0.35;
+    }
+    to {
+      transform: none;
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 47.99rem) {
+    .hero-meta,
+    .hero-pitch {
+      grid-column: 1 / -1;
+    }
+
+    .hero-pitch {
+      margin-block-start: var(--space-5);
+    }
+  }
+</style>

@@ -1,0 +1,175 @@
+---
+import { profile, formatMonth, toIso, type Lang } from "../lib/profile";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { experience } = profile;
+---
+
+<section class="experience tone-light" id="experience" aria-labelledby="experience-heading">
+  <div class="shell section section-grid">
+    <h2 class="section-heading" id="experience-heading">{experience.heading[lang]}</h2>
+
+    <ol class="section-body timeline">
+      {
+        experience.items.map((item) => (
+          <li class:list={["entry", `entry-${item.kind}`]}>
+            <p class="when">
+              {item.start && <time datetime={toIso(item.start)}>{formatMonth(item.start, lang)}</time>}
+              {item.start && " – "}
+              {item.end ? <time datetime={toIso(item.end)}>{formatMonth(item.end, lang)}</time> : experience.present[lang]}
+            </p>
+            <div class="what">
+              <h3>{item.role[lang]}</h3>
+              <p class="org">{item.org}</p>
+              {item.summary && <p class="summary">{item.summary[lang]}</p>}
+              {item.highlights && (
+                <ul class="highlights">
+                  {item.highlights.map((h) => (
+                    <li>{h[lang]}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .timeline {
+    --marker: 0.6875rem;
+    --line-x: calc(var(--marker) / 2);
+    position: relative;
+    display: grid;
+    gap: var(--space-8);
+    padding: 0;
+    list-style: none;
+  }
+
+  /* The rail, plus an accent line that draws itself as the list scrolls by. */
+  .timeline::before,
+  .timeline::after {
+    content: "";
+    position: absolute;
+    inset-block: 0.5rem 0;
+    inset-inline-start: calc(var(--line-x) - 0.5px);
+    width: 1px;
+    background: var(--rule);
+  }
+
+  .timeline::after {
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .timeline::after {
+        animation-name: draw;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: view();
+        animation-range: cover 15% cover 75%;
+      }
+    }
+  }
+
+  @supports not (animation-timeline: view()) {
+    .timeline::after {
+      display: none;
+    }
+  }
+
+  @keyframes draw {
+    to {
+      transform: scaleY(1);
+    }
+  }
+
+  .entry {
+    position: relative;
+    display: grid;
+    grid-template-columns: 11rem minmax(0, 1fr);
+    column-gap: var(--space-6);
+    padding-inline-start: calc(var(--marker) + var(--space-5));
+  }
+
+  .entry::before {
+    content: "";
+    position: absolute;
+    inset-block-start: 0.45rem;
+    inset-inline-start: 0;
+    z-index: 1;
+    width: var(--marker);
+    height: var(--marker);
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--bg);
+  }
+
+  /* Education is drawn as an open ring, work as a solid dot. */
+  .entry-education::before {
+    background: var(--bg);
+    border: 1.5px solid var(--accent);
+  }
+
+  .when {
+    color: var(--fg-muted);
+    font-size: var(--step--1);
+    font-variant-numeric: tabular-nums;
+    padding-block-start: 0.15rem;
+  }
+
+  .what h3 {
+    font-size: var(--step-2);
+    font-weight: 600;
+  }
+
+  .org {
+    margin-block-start: var(--space-1);
+    color: var(--fg-muted);
+  }
+
+  .summary {
+    margin-block-start: var(--space-4);
+    max-width: 62ch;
+  }
+
+  .highlights {
+    display: grid;
+    gap: var(--space-3);
+    margin-block-start: var(--space-4);
+    padding: 0;
+    list-style: none;
+    max-width: 62ch;
+  }
+
+  .highlights li {
+    position: relative;
+    padding-inline-start: var(--space-5);
+  }
+
+  .highlights li::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0.8em;
+    width: 0.625rem;
+    height: 1px;
+    background: var(--fg-muted);
+  }
+
+  @media (max-width: 47.99rem) {
+    .entry {
+      grid-template-columns: minmax(0, 1fr);
+      row-gap: var(--space-2);
+    }
+  }
+</style>

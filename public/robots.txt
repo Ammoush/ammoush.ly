@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ammoush.ly/sitemap-index.xml

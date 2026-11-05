@@ -1,0 +1,18 @@
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  Cross-Origin-Opener-Policy: same-origin
+  Content-Security-Policy: frame-ancestors 'none'
+  X-Frame-Options: DENY
+
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/ahmed-ammoush.vcf
+  Content-Type: text/vcard; charset=utf-8
+  Content-Disposition: attachment; filename="ahmed-ammoush.vcf"
+
+/qr.svg
+  Content-Type: image/svg+xml

@@ -1,0 +1,86 @@
+---
+import { profile, formatMonth, toIso, type Lang } from "../lib/profile";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { education, languages } = profile;
+---
+
+<section class="background tone-light" id="background" aria-label={`${education.heading[lang]}, ${languages.heading[lang]}`}>
+  <div class="shell section columns">
+    <div class="column">
+      <h2 class="section-heading">{education.heading[lang]}</h2>
+      <ul>
+        {
+          education.items.map((item) => (
+            <li>
+              <p class="primary">{item.degree[lang]}</p>
+              <p class="secondary">{item.school[lang]}</p>
+              <p class="secondary">
+                <time datetime={toIso(item.date)}>{formatMonth(item.date, lang)}</time>
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="column">
+      <h2 class="section-heading">{languages.heading[lang]}</h2>
+      <ul>
+        {
+          languages.items.map((item) => (
+            <li>
+              <p class="primary">{item.name[lang]}</p>
+              <p class="secondary">{item.level[lang]}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--space-5);
+    row-gap: var(--space-8);
+  }
+
+  .column:first-child {
+    grid-column: 4 / span 4;
+  }
+
+  .column:last-child {
+    grid-column: 9 / span 4;
+  }
+
+  ul {
+    display: grid;
+    gap: var(--space-5);
+    margin-block-start: var(--space-4);
+    padding: 0;
+    list-style: none;
+  }
+
+  .primary {
+    font-size: var(--step-1);
+    font-weight: 500;
+  }
+
+  .secondary {
+    color: var(--fg-muted);
+  }
+
+  @media (max-width: 47.99rem) {
+    .column:first-child,
+    .column:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

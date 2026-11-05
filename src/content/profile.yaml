@@ -1,0 +1,260 @@
+# Site content — every visible string lives here, in English (en) and Arabic (ar).
+# Edit the text between the quotes, keep the keys as they are.
+# Dates use YYYY-MM; `end: null` means "Present".
+
+meta:
+  title:
+    en: "Ahmed Ammoush — Technical Operations Manager"
+    ar: "أحمد عموش — مدير العمليات التقنية"
+  description:
+    en: "Technical Operations Manager working across ERP (Odoo), data, and operations. Based in Tripoli, Libya."
+    ar: "مدير العمليات التقنية، أعمل في مجالات أنظمة ERP (Odoo) والبيانات والعمليات. مقيم في طرابلس، ليبيا."
+
+person:
+  name:
+    en: "Ahmed Ammoush"
+    ar: "أحمد عموش"
+  title:
+    en: "Technical Operations Manager"
+    ar: "مدير العمليات التقنية"
+  location:
+    en: "Tripoli, Libya"
+    ar: "طرابلس، ليبيا"
+  organization: "Presto"
+
+contact:
+  email: "ahmed@ammoush.ly"
+  phone: "+218945296962"
+  phone_display: "+218 94 529 6962"
+  linkedin: "https://www.linkedin.com/in/ahmed-ammoush/"
+  github: "https://github.com/Ammoush"
+  source: "https://github.com/Ammoush/ammoush.ly"
+  cv: null # path to the general CV once it's ready, e.g. "/cv.pdf"
+
+nav:
+  about: { en: "About", ar: "نبذة" }
+  how_i_work: { en: "How I work", ar: "طريقة عملي" }
+  experience: { en: "Experience", ar: "الخبرة" }
+  skills: { en: "Skills", ar: "المهارات" }
+  contact: { en: "Contact", ar: "تواصل" }
+
+hero:
+  tagline:
+    en: "I keep ERP systems, data, and operations in sync — and build the tools that make them run better."
+    ar: "أحافظ على تناغم أنظمة ERP والبيانات والعمليات، وأبني الأدوات التي ترفع كفاءتها."
+  cta_primary: { en: "Get in touch", ar: "تواصل معي" }
+  cta_secondary: { en: "LinkedIn", ar: "LinkedIn" }
+  domains:
+    label: { en: "Focus areas", ar: "مجالات التركيز" }
+    items:
+      - { en: "ERP", ar: "ERP" }
+      - { en: "Data", ar: "البيانات" }
+      - { en: "Operations", ar: "العمليات" }
+
+about:
+  heading: { en: "About", ar: "نبذة" }
+  body:
+    en: "Technical Operations Manager at Presto, with about six years across IT support, ERP operations, and data. I turn operational needs into reliable systems — and the tools that keep them running."
+    ar: "مدير العمليات التقنية في Presto، بخبرة تقارب ست سنوات في الدعم الفني وتشغيل أنظمة ERP والبيانات. أحوّل احتياجات العمل اليومية إلى أنظمة موثوقة، وإلى أدوات تضمن استمرارها."
+
+how_i_work:
+  heading: { en: "How I work", ar: "طريقة عملي" }
+  items:
+    - title:
+        en: "Between operations and technology"
+        ar: "بين العمليات والتقنية"
+      body:
+        en: "I translate operational needs into clear technical specifications for the development team, then verify that what's delivered matches the intended business outcome."
+        ar: "أترجم احتياجات العمل إلى مواصفات تقنية واضحة لفريق التطوير، ثم أتحقق من أن ما يُسلَّم يحقق النتيجة المطلوبة فعلاً."
+    - title:
+        en: "I build the tools myself"
+        ar: "أبني الأدوات بنفسي"
+      body:
+        en: "Internal tools on the Odoo API: a B2B supplier dashboard, live KPI dashboards in Odoo and Metabase, and Python automation for recurring reports and manual processes."
+        ar: "أدوات داخلية على Odoo API: لوحة للموردين (B2B)، ولوحات مؤشرات حيّة في Odoo وMetabase، وأتمتة بـ Python للتقارير والمهام اليدوية المتكررة."
+    - title:
+        en: "Accuracy, documented"
+        ar: "دقة موثّقة"
+      body:
+        en: "I reconcile orders, invoices, and stock across systems, classify every mismatch by root cause, and document the evidence behind each finding."
+        ar: "أطابق الطلبات والفواتير والمخزون بين الأنظمة، وأصنّف كل فرق حسب سببه الجذري، وأوثّق الدليل على كل نتيجة."
+    - title:
+        en: "Grown from the ground up"
+        ar: "من الميدان إلى الإدارة"
+      body:
+        en: "From technical support and warehouse operations to running technical operations — I know how the work actually gets done."
+        ar: "من الدعم الفني وإدارة المخازن إلى إدارة العمليات التقنية؛ أعرف كيف يُنجَز العمل على أرض الواقع."
+
+experience:
+  heading: { en: "Experience", ar: "الخبرة" }
+  present: { en: "Present", ar: "الآن" }
+  items:
+    - kind: role
+      role:
+        en: "Technical Operations Manager"
+        ar: "مدير العمليات التقنية"
+      org: "Presto"
+      start: 2026-06
+      end: null
+      summary:
+        en: "Grocery Division. Promoted from Category Supervisor. The technical link between operations and the development team."
+        ar: "قسم المواد الغذائية. تمت ترقيتي من مشرف فئة. حلقة الوصل التقنية بين العمليات وفريق التطوير."
+      highlights:
+        - en: "Built internal tools on the Odoo API — a B2B supplier dashboard, live KPI dashboards in Odoo and Metabase, and Python automation of recurring reports and manual processes."
+          ar: "بنيت أدوات داخلية على Odoo API: لوحة للموردين (B2B)، ولوحات مؤشرات حيّة في Odoo وMetabase، وأتمتة بـ Python للتقارير والعمليات اليدوية المتكررة."
+        - en: "Run regular reconciliation of orders, invoices, and stock between Odoo and the app, with every mismatch classified by root cause."
+          ar: "أجري مطابقة دورية للطلبات والفواتير والمخزون بين Odoo والتطبيق، مع تصنيف كل فرق حسب سببه الجذري."
+        - en: "Defined the KPI framework — formulas, data sources, and baselines — for the operations plan presented to management."
+          ar: "وضعت إطار مؤشرات الأداء (الصيغ ومصادر البيانات وخطوط الأساس) لخطة العمليات المقدّمة للإدارة."
+        - en: "Own change and access control: every change tested in staging before production, user roles and segregation of duties managed, bulk data updates reviewed before they're applied."
+          ar: "أتولى ضبط التغييرات والصلاحيات: اختبار كل تغيير في بيئة staging قبل الإنتاج، وإدارة أدوار المستخدمين وفصل المهام، ومراجعة تحديثات البيانات المجمّعة قبل تطبيقها."
+        - en: "First-line owner of Odoo and app incidents — resolving data-sync and stuck-order cases with workarounds until the root cause is fixed."
+          ar: "المسؤول الأول عن أعطال Odoo والتطبيق: أعالج حالات تعثّر المزامنة والطلبات العالقة بحلول مؤقتة حتى إصلاح السبب الجذري."
+
+    - kind: role
+      role:
+        en: "Category Supervisor"
+        ar: "مشرف فئة"
+      org: "Presto"
+      start: 2024-03
+      end: 2026-06
+      highlights:
+        - en: "Supported the branches' move from Odoo 16 to Odoo 19, checking stock and order data around the cutover."
+          ar: "دعمت انتقال الفروع من Odoo 16 إلى Odoo 19، مع التحقق من بيانات المخزون والطلبات خلال فترة التحويل."
+        - en: "Planned stock and reorders in Odoo and Excel from stock cover and sales history; matched goods receipts against purchase orders."
+          ar: "خططت المخزون وإعادة الطلب في Odoo وExcel بناءً على مدة تغطية المخزون وتاريخ المبيعات، وطابقت الاستلامات مع أوامر الشراء."
+        - en: "Set and reviewed prices against costs and competitors, using pricing, promotions, and availability to grow category sales."
+          ar: "حددت الأسعار وراجعتها مقارنة بالتكلفة والمنافسين، واستخدمت التسعير والعروض والتوفّر لتنمية مبيعات الفئة."
+        - en: "Assigned in 2025 to raise sales and service quality at the Benghazi branch warehouse."
+          ar: "كُلّفت في 2025 برفع مستوى المبيعات وجودة الخدمة في مخزن فرع بنغازي."
+
+    - kind: role
+      role:
+        en: "Warehouse Manager"
+        ar: "مدير مخزن"
+      org: "Al-Zaitoune Al-Bayda Co."
+      start: 2023-03
+      end: 2024-02
+      summary:
+        en: "Ran receiving, storage, dispatch, and inventory reconciliation; led the warehouse team and kept stock levels aligned with purchasing and production."
+        ar: "أدرت الاستلام والتخزين والصرف ومطابقة المخزون، وقدت فريق المخزن، وحافظت على توازن مستويات المخزون مع المشتريات والإنتاج."
+
+    - kind: education
+      role:
+        en: "BSc in Computer Science"
+        ar: "بكالوريوس علوم الحاسوب"
+      org: "Al-Rifaq University"
+      start: null # graduation date only
+      end: 2023-02
+      summary:
+        en: "Full-time study, graduated February 2023."
+        ar: "تفرغ كامل للدراسة، وتخرجت في فبراير 2023."
+
+    - kind: role
+      role:
+        en: "Sales Helpdesk Officer"
+        ar: "مسؤول مكتب دعم المبيعات"
+      org: "Lion Star Company"
+      start: 2020-01
+      end: 2021-12
+      summary:
+        en: "Supervised daily sales operations and financial closing; resolved system-related customer issues."
+        ar: "أشرفت على عمليات البيع اليومية والإقفال المالي، وعالجت مشكلات العملاء المتعلقة بالنظام."
+
+    - kind: role
+      role:
+        en: "Technical Support Specialist"
+        ar: "أخصائي دعم فني"
+      org: "Al-Meddad Company"
+      start: 2019-09
+      end: 2019-12
+      summary:
+        en: "Implemented and configured software on client systems; trained clients and provided ongoing technical support."
+        ar: "ركّبت البرمجيات وهيّأتها على أنظمة العملاء، ودرّبت العملاء وقدمت لهم الدعم الفني المستمر."
+
+skills:
+  heading: { en: "Skills", ar: "المهارات" }
+  groups:
+    - name: { en: "ERP · Odoo 16 / 19", ar: "ERP · Odoo 16 / 19" }
+      items:
+        - { en: "Functional: Sales, Inventory, Purchase, Accounting", ar: "الجانب الوظيفي: المبيعات، المخزون، المشتريات، المالية" }
+        - { en: "User access and roles", ar: "صلاحيات المستخدمين والأدوار" }
+        - { en: "Segregation of duties", ar: "فصل المهام" }
+        - { en: "Approval workflows", ar: "مسارات الاعتماد" }
+        - { en: "Staging-before-production testing", ar: "الاختبار في staging قبل الإنتاج" }
+        - { en: "Release verification", ar: "التحقق من الإصدارات" }
+        - { en: "New branch and warehouse setup", ar: "تجهيز الفروع والمخازن الجديدة" }
+        - { en: "Migration checks", ar: "التحقق من ملفات الترحيل" }
+    - name: { en: "Data & analytics", ar: "البيانات والتحليلات" }
+      items:
+        - { en: "SQL", ar: "SQL" }
+        - { en: "Excel", ar: "Excel" }
+        - { en: "Metabase", ar: "Metabase" }
+        - { en: "Cross-system reconciliation", ar: "المطابقة بين الأنظمة" }
+        - { en: "Variance analysis", ar: "تحليل الفروقات" }
+        - { en: "KPI definition", ar: "تعريف مؤشرات الأداء" }
+        - { en: "Management dashboards", ar: "لوحات الإدارة" }
+    - name: { en: "Operations", ar: "العمليات" }
+      items:
+        - { en: "Incident management", ar: "إدارة الأعطال" }
+        - { en: "Inventory and procurement control", ar: "ضبط المخزون والمشتريات" }
+        - { en: "Replenishment planning", ar: "تخطيط إعادة التموين" }
+        - { en: "Supplier coordination", ar: "التنسيق مع الموردين" }
+        - { en: "Team leadership", ar: "قيادة الفرق" }
+        - { en: "Cross-functional coordination", ar: "التنسيق بين الأقسام" }
+    - name: { en: "Development & automation", ar: "التطوير والأتمتة" }
+      items:
+        - { en: "Odoo API / RPC integrations", ar: "تكاملات Odoo API / RPC" }
+        - { en: "Python automation", ar: "الأتمتة بـ Python" }
+        - { en: "Dashboard development", ar: "تطوير اللوحات" }
+        - { en: "User guides and training", ar: "أدلة المستخدم والتدريب" }
+
+education:
+  heading: { en: "Education", ar: "التعليم" }
+  items:
+    - degree: { en: "BSc in Computer Science", ar: "بكالوريوس علوم الحاسوب" }
+      school: { en: "Al-Rifaq University, Libya", ar: "جامعة الرفاق، ليبيا" }
+      date: 2023-02
+
+languages:
+  heading: { en: "Languages", ar: "اللغات" }
+  items:
+    - name: { en: "Arabic", ar: "العربية" }
+      level: { en: "Native", ar: "اللغة الأم" }
+    - name: { en: "English", ar: "الإنجليزية" }
+      level: { en: "Upper-intermediate", ar: "فوق المتوسط" }
+
+contact_section:
+  heading: { en: "Let's talk", ar: "لنتحدث" }
+  body:
+    en: "Whether it's a role, a project, or a conversation about ERP and data — I'm happy to hear from you."
+    ar: "سواء كانت فرصة عمل، أو مشروعاً، أو حديثاً مهنياً عن ERP والبيانات، يسعدني أن تتواصل معي."
+  actions:
+    copy_email: { en: "Copy email", ar: "نسخ البريد" }
+    copied: { en: "Copied", ar: "تم النسخ" }
+    whatsapp: { en: "WhatsApp", ar: "واتساب" }
+    linkedin: { en: "LinkedIn", ar: "LinkedIn" }
+    github: { en: "GitHub", ar: "GitHub" }
+    save_contact: { en: "Save contact", ar: "حفظ جهة الاتصال" }
+    download_cv: { en: "Download CV", ar: "تحميل السيرة الذاتية" }
+
+ui:
+  skip_to_content: { en: "Skip to content", ar: "تخطَّ إلى المحتوى" }
+  switch_language: { en: "العربية", ar: "English" }
+  theme_light: { en: "Switch to light mode", ar: "التبديل إلى الوضع الفاتح" }
+  theme_dark: { en: "Switch to dark mode", ar: "التبديل إلى الوضع الداكن" }
+  qr: { en: "QR code", ar: "رمز QR" }
+  email: { en: "Email", ar: "البريد الإلكتروني" }
+  sections: { en: "Sections", ar: "الأقسام" }
+
+footer:
+  built_with:
+    en: "Built with Astro · CSS scroll-driven animations · View Transitions"
+    ar: "بُني باستخدام Astro · CSS scroll-driven animations · View Transitions"
+  source: { en: "Source", ar: "المصدر" }
+  copyright: { en: "© 2026 Ahmed Ammoush", ar: "© 2026 أحمد عموش" }
+
+not_found:
+  title: { en: "This page doesn't exist", ar: "هذه الصفحة غير موجودة" }
+  body: { en: "The link may be outdated or mistyped.", ar: "ربما يكون الرابط قديماً أو مكتوباً بشكل خاطئ." }
+  back: { en: "Back to home", ar: "العودة إلى الرئيسية" }

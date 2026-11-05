@@ -1,0 +1,163 @@
+---
+import Monogram from "./Monogram.astro";
+import { profile, otherLang, homePath, type Lang } from "../lib/profile";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { nav, ui, person } = profile;
+const other = otherLang(lang);
+const home = homePath(lang);
+
+const links = [
+  { href: `${home}#about`, label: nav.about[lang] },
+  { href: `${home}#how-i-work`, label: nav.how_i_work[lang] },
+  { href: `${home}#experience`, label: nav.experience[lang] },
+  { href: `${home}#skills`, label: nav.skills[lang] },
+  { href: `${home}#contact`, label: nav.contact[lang] },
+];
+---
+
+<header class="site-header tone-light">
+  <div class="shell">
+    <a class="monogram" href={home} aria-label={person.name[lang]}>
+      <Monogram />
+    </a>
+
+    <nav class="site-nav" aria-label={ui.sections[lang]}>
+      {links.map((link) => <a href={link.href}>{link.label}</a>)}
+    </nav>
+
+    <div class="header-tools">
+      <a class="lang-switch" href={homePath(other)} hreflang={other} lang={other}>{ui.switch_language[lang]}</a>
+      <button
+        class="theme-toggle"
+        type="button"
+        data-label-dark={ui.theme_dark[lang]}
+        data-label-light={ui.theme_light[lang]}
+        aria-label={ui.theme_dark[lang]}
+      >
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"></path>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    color: var(--fg);
+    background: var(--bg);
+    border-block-end: 1px solid color-mix(in oklab, var(--rule) 70%, transparent);
+    transition:
+      background-color var(--dur-base) var(--ease-out),
+      color var(--dur-base) var(--ease-out);
+  }
+
+  .shell {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    height: var(--header-h);
+  }
+
+  .monogram {
+    display: inline-flex;
+    color: var(--fg);
+    border-radius: var(--radius-sm);
+  }
+
+  .monogram :global(svg) {
+    width: 2.25rem;
+    height: auto;
+  }
+
+  .site-nav {
+    display: flex;
+    gap: var(--space-5);
+    margin-inline-start: auto;
+    font-size: var(--step--1);
+  }
+
+  .site-nav a {
+    color: var(--fg-muted);
+    text-decoration: none;
+    transition: color var(--dur-fast) var(--ease-out);
+  }
+
+  .site-nav a:hover {
+    color: var(--fg);
+  }
+
+  .header-tools {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .lang-switch {
+    min-height: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 var(--space-3);
+    font-size: var(--step--1);
+    text-decoration: none;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-pill);
+  }
+
+  .lang-switch:lang(ar) {
+    font-family: var(--font-arabic);
+  }
+
+  .lang-switch:lang(en) {
+    font-family: var(--font-latin);
+  }
+
+  .lang-switch:hover,
+  .theme-toggle:hover {
+    border-color: var(--fg-muted);
+  }
+
+  .theme-toggle {
+    display: inline-grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    background: none;
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .theme-toggle svg {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  .theme-toggle .icon-sun,
+  :global([data-theme="dark"]) .theme-toggle .icon-moon {
+    display: none;
+  }
+
+  :global([data-theme="dark"]) .theme-toggle .icon-sun {
+    display: block;
+  }
+
+  @media (max-width: 47.99rem) {
+    .site-nav a:not([href$="#contact"]) {
+      display: none;
+    }
+  }
+</style>
