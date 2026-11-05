@@ -12,7 +12,7 @@ English at [`/`](https://ammoush.ly/), Arabic at [`/ar/`](https://ammoush.ly/ar/
 - Cross-document View Transitions between languages, and on theme change
 - About 2 KB of JavaScript in total (theme toggle, header tone, copy email)
 - Built-in Astro CSP with hashed scripts and styles, plus security headers in `public/_headers`
-- Self-hosted fonts: Inter Tight and IBM Plex Sans Arabic
+- Self-hosted fonts: IBM Plex Sans and IBM Plex Sans Arabic, one family across both languages
 - vCard and QR code generated at build time from the same content file
 
 Browsers without scroll-driven animations, and visitors who prefer reduced motion, get a static layout with all content visible.

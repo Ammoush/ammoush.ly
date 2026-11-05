@@ -23,7 +23,7 @@
   --cloud-rule: #dce3ec;
 
   /* Type */
-  --font-latin: "Inter Tight Variable", "Inter Tight", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-latin: "IBM Plex Sans Variable", "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-arabic: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
 
   --step--1: 0.875rem;
