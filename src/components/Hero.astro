@@ -66,10 +66,9 @@ const c = hero.console;
               <span class="row-label" aria-hidden="true">
                 <span class="row-name">{row.name[lang]}</span>
                 <span class="diff">
-                  {row.field[lang]} {row.value} /{" "}
                   <span class="num">
-                    <i class="was">{row.was}</i>
-                    <i class="now">{row.value}</i>
+                    <i class="was">{row.before[lang]}</i>
+                    <i class="now">{row.after[lang]}</i>
                   </span>
                 </span>
               </span>
@@ -295,7 +294,7 @@ const c = hero.console;
   .grid {
     display: grid;
     grid-template-columns: 6.5rem minmax(0, 1fr) minmax(0, 1fr) 7.5rem;
-    grid-auto-rows: minmax(3.75rem, auto);
+    grid-auto-rows: minmax(3.5rem, auto);
     align-items: center;
     column-gap: var(--space-5);
     margin-block-start: var(--space-3);
@@ -361,7 +360,7 @@ const c = hero.console;
   }
 
   .count {
-    --done: 3;
+    --done: 4;
     color: var(--fg);
     font-weight: 500;
     counter-reset: done var(--done);
@@ -406,17 +405,22 @@ const c = hero.console;
   .grid > :nth-child(n + 5):nth-child(-n + 8) {
     --to: 0.82;
     --from: 0.66;
-    --delay: 600ms;
+    --delay: 500ms;
   }
   .grid > :nth-child(n + 9):nth-child(-n + 12) {
     --to: 0.6;
     --from: 0.76;
-    --delay: 1300ms;
+    --delay: 1100ms;
   }
   .grid > :nth-child(n + 13):nth-child(-n + 16) {
     --to: 0.9;
     --from: 0.78;
-    --delay: 2000ms;
+    --delay: 1700ms;
+  }
+  .grid > :nth-child(n + 17):nth-child(-n + 20) {
+    --to: 0.72;
+    --from: 0.58;
+    --delay: 2300ms;
   }
 
   .status {
@@ -459,7 +463,7 @@ const c = hero.console;
     }
 
     .run .done {
-      animation: arrive 400ms var(--ease-out) 2900ms both;
+      animation: arrive 400ms var(--ease-out) 3150ms both;
     }
 
     .run .was {
@@ -471,7 +475,7 @@ const c = hero.console;
     }
 
     .run .count {
-      animation: tally 2700ms linear both;
+      animation: tally 3000ms linear both;
     }
   }
 
@@ -494,23 +498,27 @@ const c = hero.console;
     initial-value: 0;
   }
 
-  /* Each step lands just after its row turns to matched (600, 1300, 2000 ms plus 650). */
+  /* Each step lands just after its row turns to verified (500, 1100, 1700, 2300 ms plus 650). */
   @keyframes tally {
     0%,
-    45% {
+    38% {
       --done: 0;
     }
-    46%,
-    71% {
+    38.4%,
+    58% {
       --done: 1;
     }
-    72%,
-    97% {
+    58.4%,
+    78% {
       --done: 2;
     }
-    98%,
-    100% {
+    78.4%,
+    98% {
       --done: 3;
+    }
+    98.4%,
+    100% {
+      --done: 4;
     }
   }
 

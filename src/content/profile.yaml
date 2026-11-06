@@ -44,32 +44,32 @@ hero:
     ar: "أحافظ على تناغم أنظمة ERP والبيانات والعمليات، وأبني الأدوات التي ترفع كفاءتها."
   cta_primary: { en: "Get in touch", ar: "تواصل معي" }
   cta_secondary: { en: "LinkedIn", ar: "LinkedIn" }
-  # The reconciliation panel next to the name. Rows are what gets matched between the two systems.
+  # The operations check panel next to the name. Illustrative, no real figures:
+  # each row goes from its "before" state to its "after" state as the check runs.
   console:
-    label: { en: "Illustration: orders, invoices, and stock reconciled between Odoo and the app", ar: "رسم توضيحي: مطابقة الطلبات والفواتير والمخزون بين Odoo والتطبيق" }
-    title: { en: "Reconciliation", ar: "المطابقة" }
-    left: { en: "Odoo", ar: "Odoo" }
-    right: { en: "App", ar: "التطبيق" }
-    # Illustrative values only, not real figures: each row shows one field that differed and how it was matched.
+    label: { en: "Illustration: systems, data, access, and releases checked against the spec, one by one", ar: "رسم توضيحي: فحص الأنظمة والبيانات والصلاحيات والإصدارات مقابل المواصفة، واحداً تلو الآخر" }
+    title: { en: "Operations check", ar: "فحص العمليات" }
+    subtitle: { en: "Systems, data, access, and releases, verified one by one", ar: "الأنظمة والبيانات والصلاحيات والإصدارات، تحقق بنداً بنداً" }
+    left: { en: "Spec", ar: "المواصفة" }
+    right: { en: "Live", ar: "الفعلي" }
     rows:
-      - name: { en: "Orders", ar: "الطلبات" }
-        field: { en: "Qty", ar: "الكمية" }
-        value: "12"
-        was: "10"
-      - name: { en: "Invoices", ar: "الفواتير" }
-        field: { en: "Total", ar: "الإجمالي" }
-        value: "340"
-        was: "355"
-      - name: { en: "Stock", ar: "المخزون" }
-        field: { en: "On hand", ar: "المتوفر" }
-        value: "86"
-        was: "81"
-    summary: { en: "of {total} matched", ar: "من {total} مطابقة" }
-    mismatch: { en: "Mismatch", ar: "غير مطابق" }
-    matched: { en: "Matched", ar: "مطابق" }
-    done: { en: "In sync", ar: "متطابق" }
+      - name: { en: "Systems", ar: "الأنظمة" }
+        before: { en: "Out of sync", ar: "غير متزامنة" }
+        after: { en: "In sync", ar: "متزامنة" }
+      - name: { en: "Data", ar: "البيانات" }
+        before: { en: "Gaps found", ar: "فروقات" }
+        after: { en: "Reconciled", ar: "مطابَقة" }
+      - name: { en: "Access", ar: "الصلاحيات" }
+        before: { en: "Review due", ar: "بانتظار المراجعة" }
+        after: { en: "Reviewed", ar: "مُراجَعة" }
+      - name: { en: "Releases", ar: "الإصدارات" }
+        before: { en: "In staging", ar: "في بيئة الاختبار" }
+        after: { en: "Live", ar: "منشور" }
+    summary: { en: "of {total} verified", ar: "من {total} تم التحقق منها" }
+    mismatch: { en: "Pending", ar: "قيد الفحص" }
+    matched: { en: "Verified", ar: "تم التحقق" }
+    done: { en: "All clear", ar: "الكل سليم" }
     rerun: { en: "Run again", ar: "إعادة الفحص" }
-    subtitle: { en: "Odoo and the app, checked line by line", ar: "Odoo والتطبيق، فحص بنداً بنداً" }
 
 about:
   heading: { en: "About", ar: "نبذة" }

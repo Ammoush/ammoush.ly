@@ -37,8 +37,8 @@ const schema = z.object({
       left: text,
       right: text,
       rows: z
-        .array(z.object({ name: text, field: text, value: z.string(), was: z.string() }))
-        .length(3, "The panel animation is timed for exactly three rows"),
+        .array(z.object({ name: text, before: text, after: text }))
+        .length(4, "The panel animation is timed for exactly four rows"),
       summary: text,
       mismatch: text,
       matched: text,
