@@ -269,7 +269,7 @@ languages:
     - name: { en: "Arabic", ar: "العربية" }
       level: { en: "Native", ar: "اللغة الأم" }
     - name: { en: "English", ar: "الإنجليزية" }
-      level: { en: "Upper-intermediate", ar: "فوق المتوسط" }
+      level: { en: "Professional working proficiency", ar: "إجادة مهنية" }
 
 contact_section:
   heading: { en: "Let's talk", ar: "لنتحدث" }
