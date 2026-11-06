@@ -44,32 +44,27 @@ hero:
     ar: "أحافظ على تناغم أنظمة ERP والبيانات والعمليات، وأبني الأدوات التي ترفع كفاءتها."
   cta_primary: { en: "Get in touch", ar: "تواصل معي" }
   cta_secondary: { en: "LinkedIn", ar: "LinkedIn" }
-  # The operations check panel next to the name. Illustrative, no real figures:
-  # each row goes from its "before" state to its "after" state as the check runs.
+  # The change journey panel next to the name. Illustrative: one change travels
+  # from request to production and is checked at each of the three gates.
   console:
-    label: { en: "Illustration: systems, data, access, and releases checked against the spec, one by one", ar: "رسم توضيحي: فحص الأنظمة والبيانات والصلاحيات والإصدارات مقابل المواصفة، واحداً تلو الآخر" }
-    title: { en: "Operations check", ar: "فحص العمليات" }
-    subtitle: { en: "Systems, data, access, and releases, verified one by one", ar: "الأنظمة والبيانات والصلاحيات والإصدارات، تحقق بنداً بنداً" }
-    left: { en: "Spec", ar: "المواصفة" }
-    right: { en: "Live", ar: "الفعلي" }
-    rows:
-      - name: { en: "Systems", ar: "الأنظمة" }
-        before: { en: "Out of sync", ar: "غير متزامنة" }
-        after: { en: "In sync", ar: "متزامنة" }
-      - name: { en: "Data", ar: "البيانات" }
-        before: { en: "Gaps found", ar: "فروقات" }
-        after: { en: "Reconciled", ar: "مطابَقة" }
-      - name: { en: "Access", ar: "الصلاحيات" }
-        before: { en: "Review due", ar: "بانتظار المراجعة" }
-        after: { en: "Reviewed", ar: "مُراجَعة" }
-      - name: { en: "Releases", ar: "الإصدارات" }
-        before: { en: "In staging", ar: "في بيئة الاختبار" }
-        after: { en: "Live", ar: "منشور" }
-    summary: { en: "of {total} verified", ar: "من {total} تم التحقق منها" }
-    mismatch: { en: "Pending", ar: "قيد الفحص" }
-    matched: { en: "Verified", ar: "تم التحقق" }
-    done: { en: "All clear", ar: "الكل سليم" }
-    rerun: { en: "Run again", ar: "إعادة الفحص" }
+    label: { en: "Illustration: one change travels from request to production and is checked at every gate", ar: "رسم توضيحي: تغيير واحد ينتقل من الطلب إلى الإنتاج ويُفحص عند كل بوابة" }
+    title: { en: "One change, three gates", ar: "تغيير واحد، ثلاث بوابات" }
+    subtitle: { en: "From request to production, checked at every stop", ar: "من الطلب إلى الإنتاج، فحص عند كل محطة" }
+    hint: { en: "Point at a gate to see what is checked there", ar: "مرّر على بوابة لترى ما يُفحص فيها" }
+    gates:
+      - name: { en: "Request", ar: "الطلب" }
+        state: { en: "Spec written", ar: "كُتبت المواصفة" }
+        detail: { en: "The operational need becomes a clear specification the development team can build from.", ar: "يتحوّل احتياج العمل إلى مواصفة واضحة يبني عليها فريق التطوير." }
+      - name: { en: "Staging", ar: "بيئة الاختبار" }
+        state: { en: "Tested", ar: "تم الاختبار" }
+        detail: { en: "Every change is tested on staging before it goes anywhere near production.", ar: "يُختبر كل تغيير في بيئة الاختبار قبل أن يقترب من الإنتاج." }
+      - name: { en: "Production", ar: "الإنتاج" }
+        state: { en: "Verified", ar: "تم التحقق" }
+        detail: { en: "The release is checked against the intended business outcome, then signed off.", ar: "يُقارن الإصدار بالنتيجة المطلوبة للعمل، ثم يُعتمد." }
+    passed: { en: "Passed", ar: "اجتاز" }
+    summary: { en: "of {total} gates passed", ar: "من {total} بوابات اجتازها التغيير" }
+    done: { en: "Delivered", ar: "تم التسليم" }
+    rerun: { en: "Run again", ar: "إعادة التشغيل" }
 
 about:
   heading: { en: "About", ar: "نبذة" }

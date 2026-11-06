@@ -34,17 +34,15 @@ const schema = z.object({
     console: z.object({
       label: text,
       title: text,
-      left: text,
-      right: text,
-      rows: z
-        .array(z.object({ name: text, before: text, after: text }))
-        .length(4, "The panel animation is timed for exactly four rows"),
+      subtitle: text,
+      hint: text,
+      gates: z
+        .array(z.object({ name: text, state: text, detail: text }))
+        .length(3, "The panel animation is timed for exactly three gates"),
+      passed: text,
       summary: text,
-      mismatch: text,
-      matched: text,
       done: text,
       rerun: text,
-      subtitle: text,
     }),
   }),
   about: z.object({ heading: text, body: text }),
