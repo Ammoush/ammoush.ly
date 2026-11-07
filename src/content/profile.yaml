@@ -123,19 +123,29 @@ experience:
       start: 2026-06
       end: null
       summary:
-        en: "Grocery Division. Promoted from Category Supervisor. The technical link between operations and the development team."
-        ar: "قسم المواد الغذائية. تمت ترقيتي من مشرف فئة. حلقة الوصل التقنية بين العمليات وفريق التطوير."
+        en: "Grocery Division. Promoted from Category Supervisor."
+        ar: "قسم المواد الغذائية. تمت ترقيتي من مشرف فئة."
       highlights:
-        - en: "Built internal tools on the Odoo API: a B2B supplier dashboard, live KPI dashboards in Odoo and Metabase, and Python automation of recurring reports and manual processes."
-          ar: "بنيت أدوات داخلية على Odoo API: لوحة للموردين (B2B)، ولوحات مؤشرات حيّة في Odoo وMetabase، وأتمتة بـ Python للتقارير والعمليات اليدوية المتكررة."
-        - en: "Run regular reconciliation of orders, invoices, and stock between Odoo and the app, with every mismatch classified by root cause."
-          ar: "أجري مطابقة دورية للطلبات والفواتير والمخزون بين Odoo والتطبيق، مع تصنيف كل فرق حسب سببه الجذري."
-        - en: "Defined the KPI framework (formulas, data sources, and baselines) for the operations plan presented to management."
-          ar: "وضعت إطار مؤشرات الأداء (الصيغ ومصادر البيانات وخطوط الأساس) لخطة العمليات المقدّمة للإدارة."
-        - en: "Own change and access control: every change tested in staging before production, user roles and segregation of duties managed, bulk data updates reviewed before they're applied."
-          ar: "أتولى ضبط التغييرات والصلاحيات: اختبار كل تغيير في بيئة staging قبل الإنتاج، وإدارة أدوار المستخدمين وفصل المهام، ومراجعة تحديثات البيانات المجمّعة قبل تطبيقها."
-        - en: "First-line owner of Odoo and app incidents, resolving data-sync and stuck-order cases with workarounds until the root cause is fixed."
-          ar: "المسؤول الأول عن أعطال Odoo والتطبيق: أعالج حالات تعثّر المزامنة والطلبات العالقة بحلول مؤقتة حتى إصلاح السبب الجذري."
+        - en: "Act as the technical bridge between the grocery division and the development team: turn operational needs into clear specifications, then verify that what is delivered matches the intended outcome."
+          ar: "حلقة الوصل التقنية بين قسم المواد الغذائية وفريق التطوير: أحوّل احتياجات العمل إلى مواصفات واضحة، ثم أتحقق من أن ما يُسلَّم يحقق النتيجة المطلوبة."
+        - en: "Own Odoo and the connected apps end to end for nine branches and warehouses: the customer and courier apps, the supplier dashboard and the Presto Panel."
+          ar: "أتولى Odoo والتطبيقات المرتبطة به من البداية إلى النهاية لتسعة فروع ومخازن: تطبيقا العملاء والمندوبين، ولوحة الموردين، ولوحة Presto."
+        - en: "First point of contact for incidents, with response-time targets measured in minutes: keep operations running with a temporary workaround until the root cause is fixed."
+          ar: "نقطة الاتصال الأولى للأعطال، بأهداف استجابة تُقاس بالدقائق: أُبقي العمليات مستمرة بحل مؤقت حتى إصلاح السبب الجذري."
+        - en: "Test every change on staging before production and sign off releases."
+          ar: "أختبر كل تغيير في بيئة الاختبار قبل الإنتاج وأعتمد الإصدارات."
+        - en: "Reconcile orders, invoices and stock between Odoo and the app, tracing each mismatch to its cause."
+          ar: "أطابق الطلبات والفواتير والمخزون بين Odoo والتطبيق، وأتتبع كل فرق إلى سببه."
+        - en: "Govern user roles and permissions, and review bulk updates to items, prices and quantities before they are applied."
+          ar: "أدير أدوار المستخدمين وصلاحياتهم، وأراجع التحديثات المجمّعة للأصناف والأسعار والكميات قبل تطبيقها."
+        - en: "Prepare Odoo and the connected apps for new branches and warehouses, and review data migration and import files before approval."
+          ar: "أجهّز Odoo والتطبيقات المرتبطة للفروع والمخازن الجديدة، وأراجع ملفات نقل البيانات والاستيراد قبل اعتمادها."
+        - en: "Build internal tools on the Odoo API and Python, and own the Metabase dashboards management uses daily."
+          ar: "أبني أدوات داخلية على Odoo API وPython، وأتولى لوحات Metabase التي تستخدمها الإدارة يومياً."
+        - en: "Work with the external Odoo partner: request changes and fixes, review and test their solutions before sign-off, and follow support, upgrades and post-go-live issues with them."
+          ar: "أعمل مع شريك Odoo الخارجي: أطلب التعديلات والإصلاحات، وأراجع حلوله وأختبرها قبل اعتمادها، وأتابع معه الدعم والترقيات وما بعد الإطلاق."
+        - en: "Define the KPI framework for the operations plan, and run user training and written guides to cut user errors."
+          ar: "أضع إطار مؤشرات الأداء لخطة العمليات، وأقدّم تدريب المستخدمين وأدلة مكتوبة لتقليل الأخطاء."
 
     - kind: role
       id: cs
@@ -147,14 +157,22 @@ experience:
       start: 2024-03
       end: 2026-06
       highlights:
-        - en: "Supported the branches' move from Odoo 16 to Odoo 19, checking stock and order data around the cutover."
-          ar: "دعمت انتقال الفروع من Odoo 16 إلى Odoo 19، مع التحقق من بيانات المخزون والطلبات خلال فترة التحويل."
-        - en: "Planned stock and reorders in Odoo and Excel from stock cover and sales history; matched goods receipts against purchase orders."
-          ar: "خططت المخزون وإعادة الطلب في Odoo وExcel بناءً على مدة تغطية المخزون وتاريخ المبيعات، وطابقت الاستلامات مع أوامر الشراء."
-        - en: "Set and reviewed prices against costs and competitors, using pricing, promotions, and availability to grow category sales."
-          ar: "حددت الأسعار وراجعتها مقارنة بالتكلفة والمنافسين، واستخدمت التسعير والعروض والتوفّر لتنمية مبيعات الفئة."
+        - en: "Ran grocery categories with thousands of items across the branches, and met the sales targets set for them."
+          ar: "أدرت فئات غذائية بآلاف الأصناف عبر الفروع، وحققت أهداف المبيعات المحددة لها."
+        - en: "Planned stock and reorders in Odoo and Excel from stock cover and sales history, and matched goods receipts to purchase orders."
+          ar: "خططت المخزون وإعادة الطلب في Odoo وExcel بناءً على تغطية المخزون وتاريخ المبيعات، وطابقت الاستلامات مع أوامر الشراء."
+        - en: "Tracked sales, velocity, availability and slow-moving stock by category, item and branch, and adjusted the range and replenishment to match."
+          ar: "تابعت المبيعات وسرعة الدوران والتوفر والأصناف بطيئة الحركة حسب الفئة والصنف والفرع، وعدّلت التشكيلة وإعادة التموين وفقاً لذلك."
+        - en: "Set prices against cost and competitors, kept branch price lists current, and used pricing, promotions and availability to grow category sales."
+          ar: "حددت الأسعار مقابل التكلفة والمنافسين، وحدّثت قوائم أسعار الفروع، واستخدمت التسعير والعروض والتوفر لتنمية مبيعات الفئات."
+        - en: "Coordinated suppliers day to day and helped launch new supply partnerships."
+          ar: "نسّقت مع الموردين يومياً وساهمت في إطلاق شراكات توريد جديدة."
+        - en: "Monitored stock across sub-warehouses, planned weekly distribution with marketing and operations, and prepared purchasing, restock and shortage reports for HQ and branches."
+          ar: "تابعت المخزون عبر المخازن الفرعية، وخططت التوزيع الأسبوعي مع التسويق والعمليات، وأعددت تقارير الشراء وإعادة التموين والنواقص للإدارة والفروع."
         - en: "Assigned in 2025 to raise sales and service quality at the Benghazi branch warehouse."
           ar: "كُلّفت في 2025 برفع مستوى المبيعات وجودة الخدمة في مخزن فرع بنغازي."
+        - en: "Supported the move from Odoo 16 to Odoo 19, checking stock and order data around the cutover."
+          ar: "دعمت الانتقال من Odoo 16 إلى Odoo 19، مع التحقق من بيانات المخزون والطلبات خلال فترة التحويل."
 
     - kind: role
       id: warehouse
@@ -165,9 +183,15 @@ experience:
       org: "Al-Zaitoune Al-Bayda Co."
       start: 2023-03
       end: 2024-02
-      summary:
-        en: "Ran receiving, storage, dispatch, and inventory reconciliation; led the warehouse team and kept stock levels aligned with purchasing and production."
-        ar: "أدرت الاستلام والتخزين والصرف ومطابقة المخزون، وقدت فريق المخزن، وحافظت على توازن مستويات المخزون مع المشتريات والإنتاج."
+      highlights:
+        - en: "Ran the raw materials warehouse that feeds the factory: receiving, storage, dispatch to production and stock reconciliation."
+          ar: "أدرت مخزن المواد الخام الذي يغذي المصنع: الاستلام والتخزين والصرف للإنتاج ومطابقة المخزون."
+        - en: "Ran weekly and monthly stock counts, and kept expiry dates under control with first expired, first out."
+          ar: "أجريت جرداً أسبوعياً وشهرياً، وضبطت تواريخ الصلاحية بمبدأ الأقرب صلاحية يخرج أولاً."
+        - en: "Kept stock records and item classification accurate, and worked with purchasing and production to keep stock at the right level and avoid shortages."
+          ar: "حافظت على دقة سجلات المخزون وتصنيف الأصناف، وعملت مع المشتريات والإنتاج لإبقاء المخزون عند المستوى المناسب وتجنب النواقص."
+        - en: "Led the warehouse team and the day-to-day workflow."
+          ar: "قدت فريق المخزن وسير العمل اليومي."
 
     - kind: education
       id: bsc
@@ -190,9 +214,13 @@ experience:
       org: "Lion Star Company"
       start: 2020-01
       end: 2021-12
-      summary:
-        en: "Supervised daily sales operations and financial closing; resolved system-related customer issues."
-        ar: "أشرفت على عمليات البيع اليومية والإقفال المالي، وعالجت مشكلات العملاء المتعلقة بالنظام."
+      highlights:
+        - en: "Supported the ERP and sales system across the company's sales centres, resolving system issues for staff and customers and shortening response times."
+          ar: "دعمت نظام ERP ونظام المبيعات في مراكز البيع، وعالجت مشكلات النظام للموظفين والعملاء وقلّصت أوقات الاستجابة."
+        - en: "Supervised daily sales operations and made sure financial closing was done accurately."
+          ar: "أشرفت على عمليات البيع اليومية وتأكدت من دقة الإقفال المالي."
+        - en: "Supported sales initiatives and day-to-day performance at the sales centres."
+          ar: "دعمت مبادرات المبيعات والأداء اليومي في مراكز البيع."
 
     - kind: role
       id: support
