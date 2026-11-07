@@ -231,9 +231,15 @@ experience:
       org: "Al-Meddad Company"
       start: 2019-09
       end: 2019-12
-      summary:
-        en: "Implemented and configured software on client systems; trained clients and provided ongoing technical support."
-        ar: "ركّبت البرمجيات وهيّأتها على أنظمة العملاء، ودرّبت العملاء وقدمت لهم الدعم الفني المستمر."
+      highlights:
+        - en: "Installed and configured the company's ERP and accounting system on client machines and got it running on site."
+          ar: "نصّبت نظام ERP والمحاسبة الخاص بالشركة على أجهزة العملاء وهيّأته للعمل في موقعهم."
+        - en: "Trained client staff on the system and supported them day to day."
+          ar: "درّبت موظفي العملاء على النظام ودعمتهم في عملهم اليومي."
+        - en: "Collected client change requests, clarified them and passed them to the development team."
+          ar: "استقبلت طلبات التعديل من العملاء ووضّحتها ونقلتها إلى فريق التطوير."
+        - en: "Provided technical support when clients hit problems, diagnosing and fixing software issues to reduce downtime."
+          ar: "قدمت الدعم الفني عند مواجهة العملاء لمشكلات، وشخّصت أعطال البرمجيات وعالجتها لتقليل التوقف."
 
 skills:
   heading: { en: "Skills", ar: "المهارات" }
