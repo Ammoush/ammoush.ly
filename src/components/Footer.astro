@@ -6,16 +6,12 @@ interface Props {
 }
 
 const { lang } = Astro.props;
-const { footer, ui, contact } = profile;
+const { footer, ui } = profile;
 ---
 
 <footer class="site-footer tone-dark">
   <div class="shell">
     <p>{footer.copyright[lang]}</p>
-    <p class="built">
-      <span>{footer.built_with[lang]}</span>
-      {contact.source && <a href={contact.source} rel="noopener" target="_blank">{footer.source[lang]}</a>}
-    </p>
     <ul>
       <li><a href="/qr.svg" download="ammoush-ly-qr.svg">{ui.qr[lang]}</a></li>
     </ul>
@@ -38,15 +34,9 @@ const { footer, ui, contact } = profile;
     border-block-start: 1px solid var(--rule);
   }
 
-  .built {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-3);
-    margin-inline-start: auto;
-  }
-
   ul {
     display: flex;
+    margin-inline-start: auto;
     gap: var(--space-5);
     padding: 0;
     list-style: none;
