@@ -273,6 +273,8 @@ contact_section:
     ar: "سواء كانت فرصة عمل، أو مشروعاً، أو حديثاً مهنياً عن ERP والبيانات، يسعدني أن تتواصل معي."
   actions:
     copy_email: { en: "Copy email", ar: "نسخ البريد" }
+    copy: { en: "Copy", ar: "نسخ" }
+    open: { en: "Open", ar: "فتح" }
     copied: { en: "Copied", ar: "تم النسخ" }
     whatsapp: { en: "WhatsApp", ar: "واتساب" }
     linkedin: { en: "LinkedIn", ar: "LinkedIn" }

@@ -6,118 +6,127 @@ interface Props {
 }
 
 const { lang } = Astro.props;
-const { contact, contact_section: section } = profile;
+const { contact, contact_section: section, ui } = profile;
 const { actions } = section;
 const whatsapp = `https://wa.me/${contact.phone.replace("+", "")}`;
+const pretty = (url: string) => url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+
+const channels = [
+  { label: ui.email[lang], value: contact.email, href: `mailto:${contact.email}`, copy: true },
+  { label: actions.whatsapp[lang], value: contact.phone_display, href: whatsapp },
+  { label: actions.linkedin[lang], value: pretty(contact.linkedin), href: contact.linkedin },
+  ...(contact.github ? [{ label: actions.github[lang], value: pretty(contact.github), href: contact.github }] : []),
+];
 ---
 
 <section class="contact tone-dark" id="contact" aria-labelledby="contact-heading">
-  <div class="shell section section-grid">
-    <div class="section-body intro">
+  <div class="shell section">
+    <div class="intro">
       <h2 id="contact-heading">{section.heading[lang]}</h2>
       <p>{section.body[lang]}</p>
     </div>
 
-    <dl class="section-body channels">
-      <div class="channel">
-        <dt class="visually-hidden">{profile.ui.email[lang]}</dt>
-        <dd>
-          <a class="value" href={`mailto:${contact.email}`} dir="ltr">{contact.email}</a>
-          <button
-            class="button button-secondary copy"
-            type="button"
-            data-copy={contact.email}
-            data-label={actions.copy_email[lang]}
-            data-done={actions.copied[lang]}
-          >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-              <rect x="8" y="8" width="12" height="12" rx="2"></rect>
-              <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path>
-            </svg>
-            <span>{actions.copy_email[lang]}</span>
-          </button>
-        </dd>
-      </div>
-      <div class="channel">
-        <dt class="visually-hidden">{actions.whatsapp[lang]}</dt>
-        <dd>
-          <a class="value" href={whatsapp} rel="noopener" target="_blank" dir="ltr">{contact.phone_display}</a>
-          <a class="button button-secondary" href={whatsapp} rel="noopener" target="_blank">{actions.whatsapp[lang]}</a>
-        </dd>
-      </div>
-    </dl>
+    <div class="channels">
+      <ul>
+        {
+          channels.map((ch) => (
+            <li>
+              <span class="label">{ch.label}</span>
+              <a class="value" href={ch.href} rel={ch.copy ? undefined : "me noopener"} target={ch.copy ? undefined : "_blank"} dir="ltr">
+                {ch.value}
+              </a>
+              {ch.copy ? (
+                <button class="action" type="button" data-copy={ch.value} data-label={actions.copy[lang]} data-done={actions.copied[lang]} aria-label={`${actions.copy[lang]}: ${ch.value}`}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                    <rect x="8" y="8" width="12" height="12" rx="2" />
+                    <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" />
+                  </svg>
+                  <span>{actions.copy[lang]}</span>
+                </button>
+              ) : (
+                <a class="action" href={ch.href} rel="me noopener" target="_blank" aria-label={`${actions.open[lang]}: ${ch.label}`}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                    <path d="M7 17 17 7M9 7h8v8" />
+                  </svg>
+                  <span>{actions.open[lang]}</span>
+                </a>
+              )}
+            </li>
+          ))
+        }
+      </ul>
 
-    <ul class="section-body links">
-      <li><a class="button button-primary" href={contact.linkedin} rel="me noopener" target="_blank">{actions.linkedin[lang]}</a></li>
-      {
-        contact.github && (
-          <li>
-            <a class="button button-secondary" href={contact.github} rel="me noopener" target="_blank">
-              {actions.github[lang]}
-            </a>
-          </li>
-        )
-      }
-      <li>
+      <div class="files">
         <a class="button button-secondary" href="/ahmed-ammoush.vcf" download>{actions.save_contact[lang]}</a>
-      </li>
-      {
-        contact.cv && (
-          <li>
+        {
+          contact.cv && (
             <a class="button button-secondary" href={contact.cv} download="Ahmed-Ammoush-CV.pdf">
               {actions.download_cv[lang]}
             </a>
-          </li>
-        )
-      }
-    </ul>
+          )
+        }
+      </div>
+    </div>
 
     <p class="visually-hidden" aria-live="polite" data-copy-status></p>
   </div>
 </section>
 
 <style>
+  .section {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--space-6);
+    row-gap: var(--space-7);
+    align-items: start;
+  }
+
+  .intro {
+    grid-column: 1 / span 5;
+  }
+
+  .channels {
+    grid-column: 7 / -1;
+  }
+
   .intro h2 {
     font-size: var(--step-4);
     line-height: 1.02;
     letter-spacing: var(--tracking-display);
   }
 
-  :global(:lang(ar)) .intro h2 {
-    line-height: 1.25;
-  }
-
   .intro p {
     margin-block-start: var(--space-5);
-    max-width: 46ch;
+    max-width: 36ch;
     font-size: var(--step-1);
     color: var(--fg-muted);
   }
 
-  .channels {
-    display: grid;
-    gap: var(--space-5);
-    margin-block-start: var(--space-6);
-    padding-block-start: var(--space-6);
+  ul {
+    padding: 0;
+    list-style: none;
     border-block-start: 1px solid var(--rule);
   }
 
-  .channel dd {
-    display: flex;
-    flex-wrap: wrap;
+  li {
+    display: grid;
+    grid-template-columns: 6.5rem minmax(0, 1fr) auto;
     align-items: center;
-    justify-content: space-between;
-    gap: var(--space-3) var(--space-5);
-    margin: 0;
+    column-gap: var(--space-4);
+    min-height: 4rem;
+    padding-block: var(--space-3);
+    border-block-end: 1px solid var(--rule);
+  }
+
+  .label {
+    color: var(--fg-muted);
+    font-size: var(--step--1);
   }
 
   .value {
-    font-size: var(--step-3);
     font-weight: 500;
-    letter-spacing: var(--tracking-heading);
+    font-variant-numeric: tabular-nums;
     text-decoration: none;
-    font-family: var(--font-latin);
-    unicode-bidi: isolate;
     overflow-wrap: anywhere;
   }
 
@@ -126,11 +135,78 @@ const whatsapp = `https://wa.me/${contact.phone.replace("+", "")}`;
     text-decoration-thickness: 1px;
   }
 
-  .links {
+  .action {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-height: 2.25rem;
+    padding: 0 var(--space-3);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-pill);
+    background: none;
+    color: var(--fg-muted);
+    font: inherit;
+    font-size: var(--step--1);
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      color var(--dur-fast) var(--ease-out),
+      border-color var(--dur-fast) var(--ease-out);
+  }
+
+  .action:hover {
+    color: var(--fg);
+    border-color: var(--fg-muted);
+  }
+
+  .action svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .files {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-3);
-    padding: 0;
-    list-style: none;
+    margin-block-start: var(--space-5);
+  }
+
+  @media (max-width: 63.99rem) {
+    .intro,
+    .channels {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 39.99rem) {
+    li {
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-areas:
+        "label action"
+        "value action";
+      row-gap: var(--space-1);
+    }
+
+    .label {
+      grid-area: label;
+    }
+
+    .value {
+      grid-area: value;
+    }
+
+    .action {
+      grid-area: action;
+    }
+
+    .action span {
+      display: none;
+    }
+
+    .action {
+      width: 2.25rem;
+      padding: 0;
+      justify-content: center;
+    }
   }
 </style>

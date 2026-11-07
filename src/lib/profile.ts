@@ -88,6 +88,8 @@ const schema = z.object({
     body: text,
     actions: z.object({
       copy_email: text,
+      copy: text,
+      open: text,
       copied: text,
       whatsapp: text,
       linkedin: text,
