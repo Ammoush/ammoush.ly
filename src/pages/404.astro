@@ -13,11 +13,7 @@ const { not_found: copy } = profile;
         <p>{copy.body.en}</p>
         <a class="button button-primary" href="/">{copy.back.en}</a>
       </div>
-      <div lang="ar" dir="rtl">
-        <h2>{copy.title.ar}</h2>
-        <p>{copy.body.ar}</p>
-        <a class="button button-secondary" href="/ar/">{copy.back.ar}</a>
-      </div>
+
     </div>
   </section>
 </Base>
@@ -36,18 +32,9 @@ const { not_found: copy } = profile;
     padding-block: var(--space-9);
   }
 
-  h1,
-  h2 {
+  h1 {
     font-size: var(--step-4);
     line-height: 1.05;
-  }
-
-  [lang="ar"] {
-    font-family: var(--font-arabic), var(--font-latin);
-  }
-
-  [lang="ar"] h2 {
-    line-height: 1.3;
   }
 
   p {

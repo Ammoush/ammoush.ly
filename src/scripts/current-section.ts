@@ -1,8 +1,6 @@
-// Track the section under the header: match the header's tone to it, and
-// point the language links at the same section in the other language.
+// Track the section under the header and match the header's tone to it.
 const header = document.querySelector<HTMLElement>(".site-header");
 const sections = document.querySelectorAll<HTMLElement>("main > section");
-const langLinks = document.querySelectorAll<HTMLAnchorElement>("a[hreflang]");
 let observer: IntersectionObserver | undefined;
 
 function setCurrent(section: Element) {
@@ -12,10 +10,6 @@ function setCurrent(section: Element) {
     header.classList.toggle("tone-light", !dark);
   }
 
-  const id = section.id && section.id !== "top" ? `#${section.id}` : "";
-  langLinks.forEach((link) => {
-    link.hash = id;
-  });
 }
 
 function observe() {

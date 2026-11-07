@@ -35,10 +35,6 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      i18n: {
-        defaultLocale: "en",
-        locales: { en: "en", ar: "ar" },
-      },
       filter: (page) => !page.includes("/404"),
     }),
   ],

@@ -2,25 +2,25 @@
 
 Personal site of Ahmed Ammoush, Technical Operations Manager, working across ERP (Odoo), data, and operations.
 
-English at [`/`](https://ammoush.ly/), Arabic at [`/ar/`](https://ammoush.ly/ar/).
+Live at [ammoush.ly](https://ammoush.ly/).
 
 ## Stack
 
 - [Astro](https://astro.build) 7, static output
-- Plain CSS with design tokens and logical properties, so the Arabic (RTL) version mirrors without separate styles
+- Plain CSS with design tokens and logical properties
 - CSS scroll-driven animations for the "How I work" sequence and the experience timeline, with no animation library
-- Cross-document View Transitions between languages, and on theme change
+- Cross-document View Transitions, and a view transition on theme change
 - About 4 KB of JavaScript in total (theme toggle, header tone, copy email, hero replay, backdrop)
 - A raw WebGL backdrop behind the hero (no library): half resolution, 30 fps, paused when off screen or hidden, skipped under reduced motion or data saver
 - Built-in Astro CSP with hashed scripts and styles, plus security headers in `public/_headers`
-- Self-hosted fonts: IBM Plex Sans and IBM Plex Sans Arabic, one family across both languages
+- Self-hosted font: IBM Plex Sans
 - vCard and QR code generated at build time from the same content file
 
 Browsers without scroll-driven animations, and visitors who prefer reduced motion, get a static layout with all content visible.
 
 ## Editing content
 
-Everything the site says lives in one file: [`src/content/profile.yaml`](src/content/profile.yaml). Each entry has an English (`en`) and an Arabic (`ar`) value side by side.
+Everything the site says lives in one file: [`src/content/profile.yaml`](src/content/profile.yaml). Each entry has an English (`en`) value and an Arabic (`ar`) value; only the English version is built right now.
 
 - Change the text between the quotes; keep the keys as they are.
 - Dates use `YYYY-MM`. `end: null` means the role is current.
