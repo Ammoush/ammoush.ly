@@ -123,8 +123,8 @@ experience:
       start: 2026-06
       end: null
       summary:
-        en: "Grocery Division. Promoted from Category Supervisor."
-        ar: "قسم المواد الغذائية. تمت ترقيتي من مشرف فئة."
+        en: "Grocery Division. Promoted from Category Manager."
+        ar: "قسم المواد الغذائية. تمت ترقيتي من مدير فئة."
       highlights:
         - en: "Act as the technical bridge between the grocery division and the development team: turn operational needs into clear specifications, then verify that what is delivered matches the intended outcome."
           ar: "حلقة الوصل التقنية بين قسم المواد الغذائية وفريق التطوير: أحوّل احتياجات العمل إلى مواصفات واضحة، ثم أتحقق من أن ما يُسلَّم يحقق النتيجة المطلوبة."
@@ -149,10 +149,10 @@ experience:
 
     - kind: role
       id: cs
-      short: { en: "Category Supervisor", ar: "مشرف فئة" }
+      short: { en: "Category Manager", ar: "مدير فئة" }
       role:
-        en: "Category Supervisor"
-        ar: "مشرف فئة"
+        en: "Category Manager"
+        ar: "مدير فئة"
       org: "Presto"
       start: 2024-03
       end: 2026-06
