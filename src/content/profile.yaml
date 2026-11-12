@@ -207,10 +207,10 @@ experience:
 
     - kind: role
       id: helpdesk
-      short: { en: "Sales Helpdesk", ar: "دعم المبيعات" }
+      short: { en: "Sales Operations", ar: "عمليات المبيعات" }
       role:
-        en: "Sales Helpdesk Officer"
-        ar: "مسؤول مكتب دعم المبيعات"
+        en: "Sales Operations Officer"
+        ar: "مسؤول عمليات المبيعات"
       org: "Lion Star Company"
       start: 2020-01
       end: 2021-12
